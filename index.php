@@ -8,8 +8,8 @@
 <body>
     <!--Validation-->
     <div class="validation">
-        <button> Professionel </button>
-        <button> Particulier </button>
+        <div class="button"> Professionel </div>
+        <div class="button"> Particulier </div>
     </div>
 </body>
 </html>
