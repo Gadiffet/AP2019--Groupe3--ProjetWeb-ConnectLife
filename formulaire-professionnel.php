@@ -21,6 +21,11 @@
     </div>
     <!--Formulaire-->
     <div class="formulaire">
+        <div class="checkbox">
+            Civilité
+            <input type="checkbox"> Madame
+            <input type="checkbox"> Monsieur
+        </div>
         <div class="input">
             Nom <input>
         </div>
@@ -32,9 +37,7 @@
         </div>
         <div class="input">
             Poste occupé <input>
-        </div>        <div class="nom">
-            Nom <input>
-        </div>
+        </div>        
         <div class="input">
             Adresse1 <input>
         </div>
@@ -48,10 +51,10 @@
             Ville <input>
         </div>
         <div class="input">
-            Téléphone Société <input>
+            Téléphone Fixe <input>
         </div>
         <div class="input">
-            Téléphone Directe <input>
+            Téléphone Portable <input>
         </div>
         <div class="input">
             Mail <input>

@@ -21,19 +21,16 @@
     </div>
     <!--Formulaire-->
     <div class="formulaire">
+        <div class="checkbox">
+            Civilité
+            <input type="checkbox"> Madame
+            <input type="checkbox"> Monsieur
+        </div>
         <div class="input">
             Nom <input>
         </div>
         <div class="input">
             Prenom <input>
-        </div>
-        <div class="input">
-            Nom de la société <input>
-        </div>
-        <div class="input">
-            Poste occupé <input>
-        </div>        <div class="nom">
-            Nom <input>
         </div>
         <div class="input">
             Adresse1 <input>
