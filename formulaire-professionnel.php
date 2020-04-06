@@ -51,10 +51,10 @@
             Ville <input>
         </div>
         <div class="input">
-            Téléphone Fixe <input>
+            Téléphone Société <input>
         </div>
         <div class="input">
-            Téléphone Portable <input>
+            Téléphone Directe <input>
         </div>
         <div class="input">
             Mail <input>

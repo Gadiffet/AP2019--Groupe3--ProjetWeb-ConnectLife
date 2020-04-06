@@ -45,10 +45,10 @@
             Ville <input>
         </div>
         <div class="input">
-            Téléphone Société <input>
+            Téléphone Fixe <input>
         </div>
         <div class="input">
-            Téléphone Directe <input>
+            Téléphone Portable <input>
         </div>
         <div class="input">
             Mail <input>
