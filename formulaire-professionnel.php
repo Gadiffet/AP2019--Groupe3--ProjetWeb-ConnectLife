@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
+    <link rel="stylesheet" type="text/css" href="formulaire-professionnel.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
