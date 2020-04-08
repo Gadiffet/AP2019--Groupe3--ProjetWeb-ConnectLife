@@ -20,50 +20,55 @@
             </div>
         </div>
     </div>
+    <br/>
+    <br/>
+
     <!--Formulaire-->
-    <div class="formulaire">
-        <div class="checkbox">
-            Civilité
-            <input type="checkbox"> Madame
-            <input type="checkbox"> Monsieur
+    <form action="formulaire-particulier.php" method="post">
+        <div class="formulaire">
+            <div class="checkbox">
+                Civilité
+                <input type="checkbox"> Madame
+                <input type="checkbox"> Monsieur
+            </div>
+            <div class="input">
+                Nom <input type="text" name="nom">
+            </div>
+            <div class="input">
+                Prenom <input type="text" name="prenom">
+            </div>
+            <div class="input">
+                Nom de la société <input type="text" name="nom_societe">
+            </div>
+            <div class="input">
+                Poste occupé <input type="text" name="poste_occupe">
+            </div>        
+            <div class="input">
+                Adresse1 <input type="text" name="adresse">
+            </div>
+            <div class="input">
+                Adresse2 <input type="text" name="adresse_2">
+            </div>
+            <div class="input">
+                Code Postale <input type="text" name="code_postal">
+            </div>
+            <div class="input selection">
+                Ville <input type="text" name="ville">
+            </div>
+            <div class="input">
+                Téléphone Société <input type="text" name="portable_societe">
+            </div>
+            <div class="input">
+                Téléphone Directe <input type="text" name="portable_perso">
+            </div>
+            <div class="input">
+                Mail <input type="text" name="mail">
+            </div>
         </div>
-        <div class="input">
-            Nom <input>
+        <!--Validation-->
+        <div class="validation">
+            <input type="submit" value="Valider" />
         </div>
-        <div class="input">
-            Prenom <input>
-        </div>
-        <div class="input">
-            Nom de la société <input>
-        </div>
-        <div class="input">
-            Poste occupé <input>
-        </div>        
-        <div class="input">
-            Adresse1 <input>
-        </div>
-        <div class="input">
-            Adresse2 <input>
-        </div>
-        <div class="input">
-            Code Postale <input>
-        </div>
-        <div class="input selection">
-            Ville <input>
-        </div>
-        <div class="input">
-            Téléphone Société <input>
-        </div>
-        <div class="input">
-            Téléphone Directe <input>
-        </div>
-        <div class="input">
-            Mail <input>
-        </div>
-    </div>
-    <!--Validation-->
-    <div class="validation">
-        <div class="bouton"> <a href="remerciement.php"> Valider </a> </div>
-    </div>
+    </form>
 </body>
 </html>
