@@ -7,7 +7,7 @@
 </head>
 <body>
     <!--Validation-->
-    <div class="validation"> 
+    <div class="validation">
         <div class="button"> <a href="formulaire-professionnel.php">Professionel </a> <div> 
         <div class="button"> <a href="formulaire-particulier.php">Particulier </a> </div>
     </div>
