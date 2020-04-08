@@ -63,7 +63,7 @@
     </div>
     <!--Validation-->
     <div class="validation">
-        <button> Valider </button>
+        <div class="bouton"> <a href="remerciement.php"> Valider </a> </div>
     </div>
 </body>
 </html>

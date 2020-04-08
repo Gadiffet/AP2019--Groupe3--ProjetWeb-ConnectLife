@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire</title>
-    <link rel="stylesheet" type="text/css" href="formulaire-professionnel.css">
+    <title>Formulaire déja Renseigné</title>
+    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -20,50 +20,12 @@
             </div>
         </div>
     </div>
-    <!--Formulaire-->
+    <!--Message-->
     <div class="formulaire">
-        <div class="checkbox">
-            Civilité
-            <input type="checkbox"> Madame
-            <input type="checkbox"> Monsieur
-        </div>
-        <div class="input">
-            Nom <input>
-        </div>
-        <div class="input">
-            Prenom <input>
-        </div>
-        <div class="input">
-            Nom de la société <input>
-        </div>
-        <div class="input">
-            Poste occupé <input>
-        </div>        
-        <div class="input">
-            Adresse1 <input>
-        </div>
-        <div class="input">
-            Adresse2 <input>
-        </div>
-        <div class="input">
-            Code Postale <input>
-        </div>
-        <div class="input selection">
-            Ville <input>
-        </div>
-        <div class="input">
-            Téléphone Société <input>
-        </div>
-        <div class="input">
-            Téléphone Directe <input>
-        </div>
-        <div class="input">
-            Mail <input>
-        </div>
-    </div>
-    <!--Validation-->
-    <div class="validation">
-        <button> Valider </button>
+        Nous sommes désolé !
+        Le formulaire a déja etait renseigné
+
+        Si vous n'etes pas au courant, veuillez contacter le service de Mass-Mailing pour information complémentaire.
     </div>
 </body>
 </html>
