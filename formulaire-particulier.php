@@ -61,7 +61,7 @@
         </div>
         <!--Validation-->
         <div class="validation">
-            <div class="bouton"> <a href="remerciement.php"> Valider </a> </div>
+            <input type="submit" value="Valider" />
         </div>
     </form>
 </body>
