@@ -38,7 +38,7 @@
                 Prenom <input type="text" name="prenom">
             </div>
             <div class="input">
-                Adresse1 <input type="text" name="adresse" value="chez theo">
+                Adresse1 <input type="text" name="adresse">
             </div>
             <div class="input">
                 Adresse2 <input type="text" name="adresse_2">
