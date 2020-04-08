@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire déja Renseigné</title>
-    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
+    <link rel="stylesheet" type="text/css" href="formulaire-deja-renseigne.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -22,10 +22,10 @@
     </div>
     <!--Message-->
     <div class="formulaire">
-        Nous sommes désolé !
-        Le formulaire a déja etait renseigné
+        Nous sommes désolées !
+        Le formulaire a déjà était renseigné.
 
-        Si vous n'etes pas au courant, veuillez contacter le service de Mass-Mailing pour information complémentaire.
+        Si vous n'êtes pas au courant, veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
     </div>
 </body>
 </html>

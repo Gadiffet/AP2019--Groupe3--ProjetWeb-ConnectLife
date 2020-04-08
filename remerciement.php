@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Merci</title>
-    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
+    <link rel="stylesheet" type="text/css" href="remerciement.css">
 </head>
 <body>
     <!--En-tête du formulaire-->

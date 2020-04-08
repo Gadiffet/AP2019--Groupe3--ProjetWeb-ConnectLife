@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lien Inconnu</title>
-    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
+    <link rel="stylesheet" type="text/css" href="lien-inconnu.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -22,9 +22,9 @@
     </div>
     <!--Message-->
     <div class="formulaire">
-        Nous sommes désolé le lien que vous tentez d'atteindre n'existe pas.
+        Nous sommes désolées, le lien que vous tentez d'atteindre n'existe pas.
 
-        Verifier si le lien est correcte ou veuillez contacter le service de Mass-Mailing pour information complémentaire.
+        Vérifiez si le lien est correct ou veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
     </div>
 </body>
 </html>

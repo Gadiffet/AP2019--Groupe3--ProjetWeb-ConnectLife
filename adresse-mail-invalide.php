@@ -22,12 +22,12 @@
     </div>
     <!--Message-->
     <div class="formulaire">
-        Nous sommes désolé {Nom} {Prénom} (Le nom est prénom est reutilisé grâce aux session PHP)
-        Votre Adresse Mail est invalide
+        Nous sommes désolées {Nom} {Prénom} (Le nom est prénom est reutilisé grâce aux session PHP)
+        Votre Adresse Mail est invalide.
 
-        Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici </a> (Le formulaire doit rester sessie donc utiliser Session)
+        Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici </a> (Le formulaire doit rester saisie donc utiliser Session)
 
-        Ou veuillez contacter le service de Mass-Mailing pour information complémentaire.
+        Veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
     </div>
 </body>
 </html>

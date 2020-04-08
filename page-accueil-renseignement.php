@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'accueil de renseignement</title>
-    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
+    <link rel="stylesheet" type="text/css" href="page-accueil-renseignement.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -26,7 +26,7 @@
 
         Pouvez vous renseigner vos coordonées !
 
-        Vous pouvez acceder au formulaire <a href="formulaire-particulier.php"> particulier </a> ou <a href="formulaire-professionel.php"> Professionnel </a>
+        Vous pouvez accéder au formulaire <a href="formulaire-particulier.php"> particulier </a> ou <a href="formulaire-professionel.php"> Professionnel </a>
     </div>
 </body>
 </html>
