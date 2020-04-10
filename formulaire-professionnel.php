@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if(isset($_POST['nom']) && isset($_POST['prenom'])) 
+{
+        $_SESSION['nom'] = $_POST['nom'];
+        $_SESSION['prenom'] = $_POST['prenom'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +34,7 @@
     <br/>
 
     <!--Formulaire-->
-    <form action="formulaire-particulier.php" method="post">
+    <form action="" method="post">
         <div class="formulaire">
             <div class="checkbox">
                 Civilité
