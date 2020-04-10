@@ -34,11 +34,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
     <br/>
 
     <!--Formulaire-->
-<<<<<<< HEAD
-    <form action="formulaire-professionel.php" method="post">
-=======
     <form action="" method="post">
->>>>>>> develop
         <div class="formulaire">
             <div class="checkbox">
                 Civilité
