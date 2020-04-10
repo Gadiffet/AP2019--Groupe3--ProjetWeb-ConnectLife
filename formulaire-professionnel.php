@@ -24,7 +24,7 @@
     <br/>
 
     <!--Formulaire-->
-    <form action="formulaire-particulier.php" method="post">
+    <form action="formulaire-professionel.php" method="post">
         <div class="formulaire">
             <div class="checkbox">
                 Civilité
