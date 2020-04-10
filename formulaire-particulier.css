@@ -1,0 +1,73 @@
+body {
+
+	background-color: black;
+	color: white;
+
+}
+
+.validation{
+	margin-left: 740px;
+	margin-top: 20px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 640px)
+{
+	button
+		{
+			background-color: pink;
+			margin-left: 50%;
+		}
+}
+
+.titre{
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-right: 50%;
+	margin-left: 100px;
+}
+.logo{
+	margin-left: 150px;
+}
+.en-tete{
+
+	display: flex;
+	flex-direction: row;
+
+}
+.nom-entreprise{
+
+	color: grey;
+	font-size: 400%;
+}
+.slogan{
+
+	color: lightblue;
+	font-size: 300%;
+}
+.checkbox {
+
+	display: flex;
+	justify-content: center;
+	margin-left:0px;
+	margin-right: 75%;
+	flex-direction: row;
+
+}
+.formulaire {
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-left: 20%;
+}
+
+input{
+	display: flex;
+	align-items: center;
+	background-color: black;
+	width: 500px;
+	height: 30px;
+	margin-bottom: 10px;
+}
