@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +24,15 @@
             </div>
         </div>
     </div>
+
     <!--Message-->
     <div class="formulaire">
+<<<<<<< HEAD
         Nous sommes désolées {Nom} {Prénom} (Le nom et prénom sont réutilisé grâce aux sessions PHP)
         Votre Adresse Mail est invalide.
+=======
+        Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse Mail est invalide.
+>>>>>>> develop
 
         Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici </a> (Le formulaire doit rester saisie donc utiliser Session)
 
