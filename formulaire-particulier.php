@@ -41,29 +41,29 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
                 <input type="checkbox"> Madame
                 <input type="checkbox"> Monsieur
             </div>
-            <div class="input">
-                Nom <input type="text" name="nom">
+            <div class="input">     
+                Nom <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
             </div>
             <div class="input">
-                Prenom <input type="text" name="prenom">
+                Prenom <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
             </div>
             <div class="input">
-                Adresse1 <input type="text" name="adresse">
+                Adresse1 <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
             </div>
             <div class="input">
-                Adresse2 <input type="text" name="adresse_2">
+                Adresse2 <input type="text" name="adresse_2" value=" <?php if (isset($_POST['adresse_2'])){echo $_POST['adresse_2'];} ?>">
             </div>
             <div class="input">
-                Code Postale <input type="int" name="code_postal">
+                Code Postale <input type="text" name="code_postal">
             </div>
             <div class="input selection">
                 Ville <input type="text" name="ville">
             </div>
             <div class="input">
-                Téléphone Fixe <input type="int" name="portable_fixe">
+                Téléphone Société <input type="text" name="portable_societe" value=" <?php if (isset($_POST['portable_societe'])){echo $_POST['portable_societe'];} ?>">
             </div>
             <div class="input">
-                Téléphone Portable <input type="int" name="portable_perso">
+                Téléphone Directe <input type="text" name="portable_perso" value=" <?php if (isset($_POST['portable_perso'])){echo $_POST['portable_perso'];} ?>">
             </div>
             <div class="input">
                 Mail <input type="text" name="mail">
