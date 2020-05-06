@@ -6,18 +6,10 @@ body {
 }
 
 #valider{
-	margin-left: 740px;
+	margin-left: 45%;
 	margin-top: 20px;
 	color: white;
 	width: 75px;
-}
-
-@media only screen and (min-width: 200px) and (max-width: 640px)
-{
-	#valider
-		{
-			margin-left: 50%;
-		}
 }
 
 .titre{
