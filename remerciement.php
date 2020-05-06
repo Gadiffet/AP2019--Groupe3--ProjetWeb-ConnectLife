@@ -21,7 +21,7 @@
         </div>
     </div>
     <!--Message-->
-    <div class="formulaire">
+    <div class="text">
         Merci de votre confiance !
     </div>
 </body>

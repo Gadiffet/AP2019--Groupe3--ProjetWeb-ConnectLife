@@ -21,7 +21,7 @@
         </div>
     </div>
     <!--Message-->
-    <div class="formulaire">
+    <div class="text">
         Nous sommes désolées !
         Le formulaire a déjà était renseigné.
 

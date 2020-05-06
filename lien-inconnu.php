@@ -21,7 +21,7 @@
         </div>
     </div>
     <!--Message-->
-    <div class="formulaire">
+    <div class="text">
         Nous sommes désolées, le lien que vous tentez d'atteindre n'existe pas.
 
         Vérifiez si le lien est correct ou veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
