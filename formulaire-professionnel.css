@@ -1,7 +1,7 @@
 body {
-    font-size: 20px;
-    color: white;
-    background-color: black;
+	font-size: 20px;
+	background-color: black;
+	color: white;
 }
 .titre{
 	display: flex;
@@ -26,11 +26,45 @@ body {
 	color: lightblue;
 	font-size: 40px;
 }
-.formulaire{
-    display:flex;
-    flex-direction: column;
+.formulaire {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-left: 20%;
 }
-
-.input{
-    position:relative;
+input{
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	background-color: black;
+	width: 75%;
+	height: 30px;
+	margin-bottom: 10px;
+	color: white;
+}
+.checkbox {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	width: 75%;
+}
+.checkbox-box {
+	margin: 6px;
+	height: 10px;
+	width: 10px;
+}
+.checkbox-Madame, .checkbox-Monsieur {
+	display: flex;
+	flex-direction: row;
+}
+.validation{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.valider{
+	font-size: 20px;
+	color: white;
+	width: 100px;
+	height: 50px;
 }
