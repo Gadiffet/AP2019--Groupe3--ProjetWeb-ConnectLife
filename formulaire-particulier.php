@@ -36,10 +36,16 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
     <!--Formulaire-->
     <form action="" method="post">
         <div class="formulaire">
-            <div class="checkbox">
-                Civilité
-                <input type="checkbox"> Madame
-                <input type="checkbox"> Monsieur
+            <div class="civilité">
+                Civilité :
+                <div class="checkbox">
+                    <div class="checkbox-Madame">
+                        <input type="checkbox" class="checkbox-box"> Madame
+                    </div>
+                    <div class="checkbox-Monsieur">
+                        <input type="checkbox" class="checkbox-box"> Monsieur
+                    </div>
+                </div>
             </div>
             <div class="input">     
                 Nom <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
@@ -71,9 +77,8 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
         </div>
         <!--Validation-->
         <div onclick="validation()" class="validation">
-            <input type="submit" value="Valider" placeholder="valider" id="valider" />
+            <input type="submit" value="Valider" placeholder="valider" class="valider"/>
         </div>
-        <a href="adresse-mail-invalide.php" > ICI </a>
     </form>
 </body>
 </html>
