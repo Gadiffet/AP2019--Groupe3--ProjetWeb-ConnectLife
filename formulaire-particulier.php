@@ -71,7 +71,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
         </div>
         <!--Validation-->
         <div onclick="validation()" class="validation">
-            <input type="submit" value="Valider" />
+            <input type="submit" value="Valider" placeholder="valider" id="valider" />
         </div>
         <a href="adresse-mail-invalide.php" > ICI </a>
     </form>

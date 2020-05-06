@@ -5,16 +5,17 @@ body {
 
 }
 
-.validation{
+#valider{
 	margin-left: 740px;
 	margin-top: 20px;
+	color: white;
+	width: 75px;
 }
 
 @media only screen and (min-width: 200px) and (max-width: 640px)
 {
-	button
+	#valider
 		{
-			background-color: pink;
 			margin-left: 50%;
 		}
 }
@@ -67,7 +68,8 @@ input{
 	display: flex;
 	align-items: center;
 	background-color: black;
-	width: 500px;
+	width: 75%;
 	height: 30px;
 	margin-bottom: 10px;
+	color: white;
 }
