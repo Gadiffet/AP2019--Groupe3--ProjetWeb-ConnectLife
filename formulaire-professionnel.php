@@ -34,6 +34,29 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
     <br/>
 
     <!--Formulaire-->
+    <?php
+        if (empty($_POST['nom'])){
+            echo "Veuillez remplir le champ Nom";
+        }   
+        elseif (empty($_POST['prenom'])){
+            echo "Veuillez remplir le champs Prénom";
+        }    
+        elseif (empty($_POST['nom_societe'])){
+            echo "Veuillez remplir le champs nom societe";
+        }
+        elseif (empty($_POST['poste_occupe'])){
+            echo "Veuillez remplir le champs poste occupe";
+        }
+        elseif (empty($_POST['adresse'])){
+            echo "Veuillez remplir le champs adresse";
+        }
+        elseif (empty($_POST['portable_societe'])){
+            echo "Veuillez remplir le champs portable societe";
+        }
+        elseif (empty($_POST['portable_perso'])){
+            echo "Veuillez remplir le champs portable perso";
+        }
+    ?>
     <form action="" method="post">
         <div class="formulaire">
         <div class="civilité">
