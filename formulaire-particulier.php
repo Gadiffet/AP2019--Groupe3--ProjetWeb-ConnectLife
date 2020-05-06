@@ -70,10 +70,16 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
             </div>
         </div>
         <!--Validation-->
-        <div class="validation">
-            <input type="submit" value="Valider" />
+        <div onclick="validation()" class="validation">
+            <input type="submit" value="Valider" placeholder="valider" id="valider" />
         </div>
         <a href="adresse-mail-invalide.php" > ICI </a>
     </form>
 </body>
 </html>
+
+<script>
+    function validation() {
+        window.alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé")
+    }
+</script>

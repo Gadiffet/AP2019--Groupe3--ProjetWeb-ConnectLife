@@ -1,50 +1,37 @@
 body {
-
+	font-size: 20px;
 	background-color: black;
 	color: white;
 
 }
-
-.validation{
-	margin-left: 740px;
+#valider{
+	margin-left: 45%;
 	margin-top: 20px;
+	color: white;
+	width: 75px;
 }
-
-@media only screen and (min-width: 200px) and (max-width: 640px)
-{
-	button
-		{
-			background-color: pink;
-			margin-left: 50%;
-		}
-}
-
 .titre{
-
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	margin-right: 50%;
-	margin-left: 100px;
+    justify-content: flex-end;
+    line-height: 0.9;
+    margin-left: 20px;
+    margin-bottom: 12px;
 }
 .logo{
 	margin-left: 150px;
 }
 .en-tete{
-
 	display: flex;
 	flex-direction: row;
-
 }
 .nom-entreprise{
-
 	color: grey;
-	font-size: 400%;
+	font-size: 55px;
 }
 .slogan{
-
 	color: lightblue;
-	font-size: 300%;
+	font-size: 40px;
 }
 .checkbox {
 
@@ -67,7 +54,8 @@ input{
 	display: flex;
 	align-items: center;
 	background-color: black;
-	width: 500px;
+	width: 75%;
 	height: 30px;
 	margin-bottom: 10px;
+	color: white;
 }

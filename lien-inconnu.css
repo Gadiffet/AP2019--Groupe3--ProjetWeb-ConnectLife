@@ -1,0 +1,28 @@
+body {
+    font-size: 20px;
+    color: white;
+    background-color: black;
+}
+.titre{
+	display: flex;
+	flex-direction: column;
+    justify-content: flex-end;
+    line-height: 0.9;
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+.logo{
+	margin-left: 150px;
+}
+.en-tete{
+	display: flex;
+	flex-direction: row;
+}
+.nom-entreprise{
+	color: grey;
+	font-size: 55px;
+}
+.slogan{
+	color: lightblue;
+	font-size: 40px;
+}
