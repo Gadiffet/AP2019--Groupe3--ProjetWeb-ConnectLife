@@ -27,11 +27,11 @@ session_start();
 
     <!--Message-->
     <div class="text">
-        Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse Mail est invalide.
+        <p>Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse Mail est invalide.</p>
 
-        Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici </a> (Le formulaire doit rester saisie donc utiliser Session)
+        <p>Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici</a></p>
 
-        Veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
+        <P>Veuillez contacter le service de Mass-Mailing pour des informations complémentaires.</p>
     </div>
 </body>
 </html>
