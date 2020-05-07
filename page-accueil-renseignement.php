@@ -21,7 +21,7 @@
         </div>
     </div>
     <!--Message-->
-    <div class="formulaire">
+    <div class="text">
         Bonjour !
 
         Pouvez vous renseigner vos coordonées !

@@ -26,3 +26,10 @@ body {
 	color: lightblue;
 	font-size: 40px;
 }
+.text{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	margin: 50px;
+}

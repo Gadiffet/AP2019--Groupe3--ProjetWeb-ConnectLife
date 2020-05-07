@@ -37,7 +37,9 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
     <form action="" method="post">
         <div class="formulaire">
             <div class="civilité">
+                <div class="text">
                 Civilité :
+                </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
                         <input type="checkbox" class="checkbox-box"> Madame
@@ -47,32 +49,61 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
                     </div>
                 </div>
             </div>
-            <div class="input">     
-                Nom <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
+            <div class="input">
+                <div class="text">
+                Nom : 
+                </div>
+                <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
             </div>
             <div class="input">
-                Prenom <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
+                <div class="text">
+                Prenom : 
+                </div>
+                <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
             </div>
             <div class="input">
-                Adresse1 <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
+                <div class="text">
+                Adresse1 : 
+                </div>
+                <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
             </div>
             <div class="input">
-                Adresse2 <input type="text" name="adresse_2" value=" <?php if (isset($_POST['adresse_2'])){echo $_POST['adresse_2'];} ?>">
+                <div class="text">
+                Adresse2 : 
+                </div>
+                <input type="text" name="adresse_2" value=" <?php if (isset($_POST['adresse_2'])){echo $_POST['adresse_2'];} ?>">
             </div>
             <div class="input">
-                Code Postale <input type="text" name="code_postal">
-            </div>
-            <div class="input selection">
-                Ville <input type="text" name="ville">
-            </div>
-            <div class="input">
-                Téléphone Société <input type="text" name="portable_societe" value=" <?php if (isset($_POST['portable_societe'])){echo $_POST['portable_societe'];} ?>">
+                <div class="text">
+                    Code Postale : 
+                </div>
+                <input type="int" name="code_postal">
             </div>
             <div class="input">
-                Téléphone Directe <input type="text" name="portable_perso" value=" <?php if (isset($_POST['portable_perso'])){echo $_POST['portable_perso'];} ?>">
+                <div class="text">
+                    Ville :
+                </div>
+                <select>
+                    <option value="ville">
+                </select>
             </div>
             <div class="input">
-                Mail <input type="text" name="mail">
+                <div class="text">
+                    Téléphone Fixe : 
+                </div>
+                <input type="text" name="portable_fixe" value=" <?php if (isset($_POST['portable_fixe'])){echo $_POST['portable_fixe'];} ?>">
+            </div>
+            <div class="input">
+                <div class="text">
+                Téléphone Portable : 
+                </div>
+                <input type="text" name="portable_perso" value=" <?php if (isset($_POST['portable_perso'])){echo $_POST['portable_perso'];} ?>">
+            </div>
+            <div class="input">
+                <div class="text">
+                    Mail: 
+                </div>
+                <input type="text" name="mail">
             </div>
         </div>
         <!--Validation-->

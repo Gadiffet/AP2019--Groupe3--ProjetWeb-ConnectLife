@@ -26,7 +26,7 @@ session_start();
     </div>
 
     <!--Message-->
-    <div class="formulaire">
+    <div class="text">
         Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse Mail est invalide.
 
         Vous pouvez retourner au formulaire <a href="formulaire-professionnel.php"> ici </a> (Le formulaire doit rester saisie donc utiliser Session)
