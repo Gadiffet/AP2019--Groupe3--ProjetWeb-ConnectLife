@@ -38,7 +38,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
         <div class="formulaire">
             <div class="civilité">
                 <div class="text">
-                Civilité :
+                    Civilité :
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
@@ -51,25 +51,25 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
             </div>
             <div class="input">
                 <div class="text">
-                Nom : 
+                    Nom : 
                 </div>
                 <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
             </div>
             <div class="input">
                 <div class="text">
-                Prenom : 
+                    Prenom : 
                 </div>
                 <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                Adresse1 : 
+                    Adresse1 : 
                 </div>
                 <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                Adresse2 : 
+                    Adresse2 : 
                 </div>
                 <input type="text" name="adresse_2" value=" <?php if (isset($_POST['adresse_2'])){echo $_POST['adresse_2'];} ?>">
             </div>
@@ -95,7 +95,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
             </div>
             <div class="input">
                 <div class="text">
-                Téléphone Portable : 
+                    Téléphone Portable : 
                 </div>
                 <input type="text" name="portable_perso" value=" <?php if (isset($_POST['portable_perso'])){echo $_POST['portable_perso'];} ?>">
             </div>
