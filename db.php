@@ -2,7 +2,7 @@
 $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
 
 function ajouterClient{
-$request = $pdo->prepare("INSERT INTO client VALUES (:uuid() ,:nom, :mail, :is_societe)");
+$request = $pdo->prepare("INSERT INTO client VALUES (uuid() ,:nom, :mail, :is_societe)");
 
    $request->execute([
         ":nom"=> $_POST["nom"],        
