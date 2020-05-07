@@ -11,7 +11,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['prenom']) ||
         $_SESSION['adresse'] = $_POST['adresse'];
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
         $_SESSION['portable_societe'] = $_POST['portable_societe'];
-        $_SESSION['portable_perso'] = $_POST['portable_perso'];
+        $_SESSION['portable_directe'] = $_POST['portable_directe'];
 }
 
 ?>
@@ -117,7 +117,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['prenom']) ||
                 <div class="text">
                     Téléphone Directe : 
                 </div>
-                <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_perso'])){echo $_SESSION['portable_perso'];} ?>">
+                <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_directe'])){echo $_SESSION['portable_perso'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
