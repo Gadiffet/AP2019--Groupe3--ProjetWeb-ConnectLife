@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['prenom']) || isset($_POST['prenom']) 
-|| isset($_POST['prenom']) || isset($_POST['prenom']) || isset($_POST['prenom']) || isset($_POST['prenom'])) 
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) 
+|| isset($_POST['adresse']) || isset($_POST['adresse_2']) || isset($_POST['portable_societe']) || isset($_POST['portable_perso'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
