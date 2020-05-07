@@ -125,6 +125,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
                 </div>
                 <input type="text" name="mail">
             </div>
+            <div style="visibility:hidden;">
+                <input type="checkbox" checked=checked name="is_societe"/>
+            </div>
         </div>
         <!--Validation-->
         <div onclick="validation()" class="validation">

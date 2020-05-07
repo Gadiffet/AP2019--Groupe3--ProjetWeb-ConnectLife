@@ -111,6 +111,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
                 </div>
                 <input type="text" name="mail">
             </div>
+            <div style="visibility:hidden;">
+                <input type="checkbox" name="is_societe"/>
+            </div>
         </div>
         <!--Validation-->
         <div onclick="validation()" class="validation">
