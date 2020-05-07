@@ -37,7 +37,9 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
     <form action="" method="post">
         <div class="formulaire">
             <div class="civilité">
+                <div class="text">
                 Civilité :
+                </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
                         <input type="checkbox" class="checkbox-box"> Madame
@@ -48,31 +50,60 @@ if(isset($_POST['nom']) && isset($_POST['prenom']))
                 </div>
             </div>
             <div class="input">
-                Nom <input type="text" name="nom">
+                <div class="text">
+                Nom : 
+                </div>
+                <input type="text" name="nom">
             </div>
             <div class="input">
-                Prenom <input type="text" name="prenom">
+                <div class="text">
+                Prenom : 
+                </div>
+                <input type="text" name="prenom">
             </div>
             <div class="input">
-                Adresse1 <input type="text" name="adresse">
+                <div class="text">
+                Adresse1 : 
+                </div>
+                <input type="text" name="adresse">
             </div>
             <div class="input">
-                Adresse2 <input type="text" name="adresse_2">
+                <div class="text">
+                Adresse2 : 
+                </div>
+                <input type="text" name="adresse_2">
             </div>
             <div class="input">
-                Code Postale <input type="int" name="code_postal">
-            </div>
-            <div class="input selection">
-                Ville <input type="text" name="ville">
-            </div>
-            <div class="input">
-                Téléphone Fixe <input type="int" name="portable_fixe">
+                <div class="text">
+                    Code Postale : 
+                </div>
+                <input type="int" name="code_postal">
             </div>
             <div class="input">
-                Téléphone Portable <input type="int" name="portable_perso">
+                <div class="text">
+                    Ville :
+                </div>
+                <select>
+                    <option value="ville">
+                </select>
             </div>
             <div class="input">
-                Mail <input type="text" name="mail">
+                <div class="text">
+                    Téléphone Fixe : 
+                </div>
+                <input type="int" name="portable_fixe">
+            </div>
+            <div class="input">
+                <div class="text">
+                Téléphone Portable : 
+                </div>
+                <input type="int" name="portable_perso">
+            </div>
+            <div class="input">
+                <div class="text">
+                    Mail: 
+                </div>
+                <input type="text" name="mail">
             </div>
         </div>
         <!--Validation-->

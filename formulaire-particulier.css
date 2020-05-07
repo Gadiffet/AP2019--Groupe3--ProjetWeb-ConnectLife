@@ -12,7 +12,7 @@ body {
     margin-bottom: 12px;
 }
 .logo{
-	margin-left: 150px;
+	margin-left: 20%;
 }
 .en-tete{
 	display: flex;
@@ -30,32 +30,46 @@ body {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	margin-left: 20%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
-input{
+.civilité{
 	display: flex;
-	align-items: center;
-	font-size: 20px;
-	background-color: black;
-	width: 75%;
-	height: 30px;
 	margin-bottom: 10px;
-	color: white;
 }
-.checkbox {
+.checkbox{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row;
-	width: 75%;
+	width: 100%;
 }
-.checkbox-box {
+.checkbox-box{
 	margin: 6px;
 	height: 10px;
 	width: 10px;
 }
-.checkbox-Madame, .checkbox-Monsieur {
+.checkbox-Madame, .checkbox-Monsieur{
 	display: flex;
 	flex-direction: row;
+}
+.text{
+	width: 250px;
+}
+.input{
+	display: flex;
+}
+.input input, select{
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	background-color: black;
+	width: 100%;
+	height: 30px;
+	margin-bottom: 10px;
+	color: white;
+}
+select{
+	height: 35px;
 }
 .validation{
 	display: flex;
@@ -63,8 +77,27 @@ input{
 	margin-top: 20px;
 }
 .valider{
-	font-size: 20px;
+	font-size: 18px;
 	color: white;
+	background-color: black;
 	width: 100px;
-	height: 50px;
+	height: 30px;
 }
+
+@media screen and (max-width: 650px) {
+	.nom-entreprise{
+		font-size: 45px;
+	}
+	.slogan{
+		font-size: 30px;
+	}
+  }
+
+@media screen and (max-width: 480px) {
+	.nom-entreprise{
+		font-size: 38px;
+	}
+	.slogan{
+		font-size: 22px;
+	}
+  }
