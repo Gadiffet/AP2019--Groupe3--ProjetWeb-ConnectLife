@@ -26,7 +26,7 @@
 
         Pouvez vous renseigner vos coordonées !
 
-        Vous pouvez accéder au formulaire <a href="formulaire-particulier.php"> particulier </a> ou <a href="formulaire-professionel.php"> Professionnel </a>
+        Vous pouvez accéder au formulaire <a href="formulaire-particulier.php"> particulier </a> ou <a href="formulaire-professionnel.php"> Professionnel </a>
     </div>
 </body>
 </html>
