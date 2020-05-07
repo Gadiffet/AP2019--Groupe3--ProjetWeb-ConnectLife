@@ -22,11 +22,9 @@
     </div>
     <!--Message-->
     <div class="text">
-        Bonjour !
-
-        Pouvez vous renseigner vos coordonées !
-
-        Vous pouvez accéder au formulaire <a href="formulaire-particulier.php"> particulier </a> ou <a href="formulaire-professionnel.php"> Professionnel </a>
+        <p>Bonjour !</p>
+        <p>Pouvez vous renseigner vos coordonées !</p>
+        <p>Vous pouvez accéder au formulaire <a href="formulaire-particulier.php"> Particulier</a> ou <a href="formulaire-professionnel.php"> Professionnel </a></p>
     </div>
 </body>
 </html>

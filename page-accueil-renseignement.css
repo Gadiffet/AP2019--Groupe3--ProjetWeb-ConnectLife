@@ -1,7 +1,7 @@
 body {
-    font-size: 20px;
-    color: white;
-    background-color: black;
+	font-size: 20px;
+	background-color: black;
+	color: white;
 }
 .titre{
 	display: flex;
@@ -12,7 +12,7 @@ body {
     margin-bottom: 12px;
 }
 .logo{
-	margin-left: 150px;
+	margin-left: 10%;
 }
 .en-tete{
 	display: flex;
@@ -31,8 +31,32 @@ body {
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	margin: 50px;
+	margin: 200px 10% 0 10%;
+	padding: 50px;
+	border: 1px solid #008B8B;
+	height: 200px;
 }
 a {
 	color: yellow;
 }
+a:hover{
+	color: yellowgreen;
+}
+
+@media screen and (max-width: 650px) {
+	.nom-entreprise{
+		font-size: 45px;
+	}
+	.slogan{
+		font-size: 30px;
+	}
+  }
+
+@media screen and (max-width: 480px) {
+	.nom-entreprise{
+		font-size: 38px;
+	}
+	.slogan{
+		font-size: 22px;
+	}
+  }

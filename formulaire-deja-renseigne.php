@@ -22,10 +22,9 @@
     </div>
     <!--Message-->
     <div class="text">
-        Nous sommes désolées !
-        Le formulaire a déjà était renseigné.
-
-        Si vous n'êtes pas au courant, veuillez contacter le service de Mass-Mailing pour des informations complémentaires.
+        <p>Nous sommes désolées !</p>
+        <p>Le formulaire a déjà était renseigné.</p>
+        <p>Si vous n'êtes pas au courant, veuillez contacter le service de Mass-Mailing pour des informations complémentaires.</p>
     </div>
 </body>
 </html>
