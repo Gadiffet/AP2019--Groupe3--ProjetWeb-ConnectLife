@@ -44,7 +44,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
         <div class="formulaire">
             <div class="civilité">
                 <div class="text">
-                    Civilité :
+                    Civilité* :
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
@@ -57,19 +57,19 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
             </div>
             <div class="input">
                 <div class="text">
-                    Nom : 
+                    Nom* : 
                 </div>
                 <input type="text" name="nom" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>" >
             </div>
             <div class="input">
                 <div class="text">
-                    Prenom : 
+                    Prenom* : 
                 </div>
                 <input type="text" name="prenom" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Adresse1 : 
+                    Adresse1* : 
                 </div>
                 <input type="text" name="adresse" value=" <?php if (isset($_SESSION['adresse'])){echo $_SESSION['adresse'];} ?>">
             </div>
@@ -81,13 +81,13 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
             </div>
             <div class="input">
                 <div class="text">
-                    Code Postale : 
+                    Code Postale* : 
                 </div>
                 <input type="int" name="code_postal">
             </div>
             <div class="input">
                 <div class="text">
-                    Ville :
+                    Ville* :
                 </div>
                 <select>
                     <option value="ville">
@@ -95,26 +95,30 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
             </div>
             <div class="input">
                 <div class="text">
-                    Téléphone Fixe : 
+                    Téléphone Fixe* : 
                 </div>
                 <input type="text" name="portable_fixe" value=" <?php if (isset($_SESSION['portable_fixe'])){echo $_SESSION['portable_fixe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Téléphone Portable : 
+                    Téléphone Portable* : 
                 </div>
                 <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_perso'])){echo $_SESSION['portable_perso'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Mail: 
+                    EMail*: 
                 </div>
                 <input type="text" name="mail">
             </div>
-            <div style="visibility:hidden;">
-                <input type="checkbox" name="is_societe"/>
-            </div>
         </div>
+        <div class="champ">
+            *: Champ à saisie obligatoire
+        </div>
+        <div style="visibility:hidden;">
+            <input type="checkbox" name="is_societe"/>
+        </div>
+
         <!--Validation-->
         <div onclick="validation()" class="validation">
             <input type="submit" value="Valider" placeholder="valider" class="valider"/>

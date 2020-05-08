@@ -46,7 +46,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         <div class="formulaire">
             <div class="civilité">
                 <div class="text">
-                    Civilité :
+                    Civilité* :
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
@@ -59,31 +59,31 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
             <div class="input">
                 <div class="text">
-                    Nom : 
+                    Nom* : 
                 </div>
                 <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
             </div>
             <div class="input">
                 <div class="text">
-                    Prenom : 
+                    Prenom* : 
                 </div>
                 <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Nom de la société : 
+                    Nom de la société* : 
                 </div>
                 <input type="text" name="nom_societe" value=" <?php if (isset($_SESSION['nom_societe'])){echo $_SESSION['nom_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Poste occupé : 
+                    Poste occupé* : 
                 </div>
                 <input type="text" name="poste_occupe" value=" <?php if (isset($_SESSION['poste_occupe'])){echo $_SESSION['poste_occupe'];} ?>">
             </div>   
             <div class="input">
                 <div class="text">
-                    Adresse1 : 
+                    Adresse1* : 
                 </div>
                 <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
             </div>
@@ -95,13 +95,13 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
             <div class="input">
                 <div class="text">
-                    Code Postale : 
+                    Code Postale* : 
                 </div>
                 <input type="int" name="code_postal">
             </div>
             <div class="input">
                 <div class="text">
-                    Ville :
+                    Ville* :
                 </div>
                 <select>
                     <option value="ville">
@@ -109,25 +109,28 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
             <div class="input">
                 <div class="text">
-                    Téléphone Société : 
+                    Téléphone Société* : 
                 </div>
                 <input type="text" name="portable_societe" value=" <?php if (isset($_SESSION['portable_societe'])){echo $_SESSION['portable_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Téléphone Directe : 
+                    Téléphone Directe* : 
                 </div>
                 <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_directe'])){echo $_SESSION['portable_directe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    Mail: 
+                    EMail* : 
                 </div>
                 <input type="text" name="mail">
             </div>
-            <div style="visibility:hidden;">
-                <input type="checkbox" checked=checked name="is_societe"/>
-            </div>
+        </div>
+        <div class="champ">
+            *: Champ à saisie obligatoire
+        </div>
+        <div style="visibility:hidden;">
+            <input type="checkbox" name="is_societe"/>
         </div>
         <!--Validation-->
         <div onclick="validation()" class="validation">

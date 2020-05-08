@@ -35,7 +35,7 @@ body {
 }
 .civilité{
 	display: flex;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .checkbox{
 	display: flex;
@@ -71,6 +71,11 @@ body {
 select{
 	height: 35px;
 }
+.champ{
+	display: flex;
+	justify-content: right;
+	margin-right: 10%;
+}
 .validation{
 	display: flex;
 	justify-content: center;
@@ -84,6 +89,15 @@ select{
 	height: 30px;
 }
 
+@media screen and (max-width: 800px) {
+	.civilité{
+		display: inline;
+	}
+	.input{
+		display: inline;
+	}
+  }
+
 @media screen and (max-width: 650px) {
 	.nom-entreprise{
 		font-size: 45px;
@@ -91,13 +105,19 @@ select{
 	.slogan{
 		font-size: 30px;
 	}
+	.civilité{
+		display: inline;
+	}
+	.input input, select{
+		display: inline;
+	}
   }
 
 @media screen and (max-width: 480px) {
 	.nom-entreprise{
-		font-size: 38px;
+		font-size: 40px;
 	}
 	.slogan{
-		font-size: 22px;
+		font-size: 25px;
 	}
   }
