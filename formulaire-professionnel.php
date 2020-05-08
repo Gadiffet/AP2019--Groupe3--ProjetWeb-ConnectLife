@@ -141,7 +141,10 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 </html>
 
 <script>
-    function validation() {
-        window.alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé")
+   function validation() {
+        setTimeout(function redirection() {
+            window.location.href='remerciement.php';
+        },1);
+        alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
 </script>
