@@ -59,7 +59,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
                 <div class="text">
                     Nom* : 
                 </div>
-                <input type="text" name="nom" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>" >
+                <input type="text" id="Nom" name="nom" onblur="validationInput()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
@@ -128,10 +128,27 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse'])
 </html>
 
 <script>
-   function validation() {
+    function validationInput() {
+        const input = document.querySelector('#Nom')
+        const value = input.value
+        if (!value) {
+            input.dataset.state = ''
+            return
+        }
+        
+        const trimmed = value.trim()
+        if (trimmed) {
+            input.dataset.state = 'valid'
+        }
+        else {
+            input.dataset.state = 'invalid'
+        }
+    }
+
+    function validation() {
         setTimeout(function redirection() {
             window.location.href='remerciement.php';
-        },1);
+            },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
 </script>

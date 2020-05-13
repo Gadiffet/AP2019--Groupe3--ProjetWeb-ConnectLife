@@ -89,6 +89,14 @@ select{
 	height: 30px;
 }
 
+.input input[data-state="valid"] {
+	border-color: hsl(120, 76%, 50%);
+}
+
+.input input[data-state="invalid"] {
+	border-color: hsl(0, 76%, 50%);
+}
+
 @media screen and (max-width: 800px) {
 	.civilité{
 		display: inline;
