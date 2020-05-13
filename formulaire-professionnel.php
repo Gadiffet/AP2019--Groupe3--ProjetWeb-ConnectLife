@@ -2,13 +2,13 @@
 session_start();
 
 if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) 
-|| isset($_POST['adresse']) || isset($_POST['adresse_2']) || isset($_POST['portable_societe']) || isset($_POST['portable_perso'])) 
+|| isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['portable_societe']) || isset($_POST['portable_perso'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
         $_SESSION['nom_societe'] = $_POST['nom_societe'];
         $_SESSION['poste_occupe'] = $_POST['poste_occupe'];
-        $_SESSION['adresse'] = $_POST['adresse'];
+        $_SESSION['adresse_1'] = $_POST['adresse_1'];
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
         $_SESSION['portable_societe'] = $_POST['portable_societe'];
         $_SESSION['portable_directe'] = $_POST['portable_directe'];
@@ -85,7 +85,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
                 <div class="text">
                     Adresse1* : 
                 </div>
-                <input type="text" name="adresse" value=" <?php if (isset($_POST['adresse'])){echo $_POST['adresse'];} ?>">
+                <input type="text" name="adresse_1" value=" <?php if (isset($_POST['adresse_1'])){echo $_POST['adresse'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
@@ -97,7 +97,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
                 <div class="text">
                     Code Postale* : 
                 </div>
-                <input type="int" name="code_postal">
+                <input type="int" name="code_postale">
             </div>
             <div class="input">
                 <div class="text">
