@@ -3,6 +3,11 @@ body {
 	background-color: black;
 	color: white;
 }
+
+form {
+	margin-top: 50px;
+}
+
 .titre{
 	display: flex;
 	flex-direction: column;

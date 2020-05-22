@@ -35,9 +35,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
                 Que la force vous guide
             </div>
         </div>
-    </div> 
-    <br/>
-    <br/>
+    </div>
 
     <!--Formulaire-->
     <form action="" method="post">
