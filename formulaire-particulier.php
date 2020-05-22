@@ -46,10 +46,10 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
-                        <input type="checkbox" class="checkbox-box"> Madame
+                        <input type="checkbox" id="madame" class="checkbox-box" onclick="verificationCheckboxMadame()"> Madame
                     </div>
                     <div class="checkbox-Monsieur">
-                        <input type="checkbox" class="checkbox-box"> Monsieur
+                        <input type="checkbox" id="monsieur" class="checkbox-box" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
             </div>
@@ -271,5 +271,13 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
             window.location.href='remerciement.php';
             },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
+    }
+
+
+    function verificationCheckboxMadame() {
+    	document.querySelector('#madame').checked = false;
+    }
+      function verificationCheckboxMonsieur() {
+    	document.querySelector('#monsieur').checked = false;
     }
 </script>
