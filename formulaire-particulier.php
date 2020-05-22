@@ -95,19 +95,19 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
                 <div class="text">
                     Téléphone Fixe* : 
                 </div>
-                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value=" <?php if (isset($_SESSION['portable_fixe'])){echo $_SESSION['portable_fixe'];} ?>">
+                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value=" <?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Portable* : 
                 </div>
-                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortale()" value=" <?php if (isset($_SESSION['telephone_perso'])){echo $_SESSION['portable_perso'];} ?>">
+                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortale()" value=" <?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     EMail*: 
                 </div>
-                <input type="text" id="mail" name="mail">
+                <input type="text" id="mail" name="mail" oninput="validationInputMail()">
             </div>
         </div>
         <div class="champ">
@@ -137,7 +137,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0\-]+$/;
+        let letters = /^[a-zA-Z\-]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }

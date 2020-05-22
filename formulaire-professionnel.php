@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) 
-|| isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['portable_societe']) || isset($_POST['portable_perso'])) 
+|| isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -10,8 +10,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['poste_occupe'] = $_POST['poste_occupe'];
         $_SESSION['adresse_1'] = $_POST['adresse_1'];
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
-        $_SESSION['portable_societe'] = $_POST['portable_societe'];
-        $_SESSION['portable_directe'] = $_POST['portable_directe'];
+        $_SESSION['telephone_societe'] = $_POST['telephone_societe'];
+        $_SESSION['telephone_directe'] = $_POST['telephone_directe'];
 }
 
 ?>
@@ -38,10 +38,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
         </div>
     </div> 
-    <br/>
-    <br/>
 
-<!--Formulaire-->
+    <!--Formulaire-->
     <form action="" method="post">
         <div class="formulaire">
             <div class="civilité">
@@ -61,37 +59,37 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
                 <div class="text">
                     Nom* : 
                 </div>
-                <input type="text" name="nom" value=" <?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
+                <input type="text" id="nom" name="nom" oninput="validationInputNom()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
-                <input type="text" name="prenom" value=" <?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
+                <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Nom de la société* : 
                 </div>
-                <input type="text" name="nom_societe" value=" <?php if (isset($_SESSION['nom_societe'])){echo $_SESSION['nom_societe'];} ?>">
+                <input type="text" id="nom_societe" name="nom_societe" oninput="validationInputNomSociete()" value=" <?php if (isset($_SESSION['nom_societe'])){echo $_SESSION['nom_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Poste occupé* : 
                 </div>
-                <input type="text" name="poste_occupe" value=" <?php if (isset($_SESSION['poste_occupe'])){echo $_SESSION['poste_occupe'];} ?>">
+                <input type="text" id="poste_occupe" name="poste_occupe" oninput="validationInputPosteOccupe()" value=" <?php if (isset($_SESSION['poste_occupe'])){echo $_SESSION['poste_occupe'];} ?>">
             </div>   
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
-                <input type="text" name="adresse_1" value=" <?php if (isset($_POST['adresse_1'])){echo $_POST['adresse'];} ?>">
+                <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
-                <input type="text" name="adresse_2" value=" <?php if (isset($_POST['adresse_2'])){echo $_POST['adresse_2'];} ?>">
+                <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
@@ -104,26 +102,26 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
                     Ville* :
                 </div>
                 <select>
-                    <option value="ville">
+                    <option value="ville" name="ville">
                 </select>
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Société* : 
                 </div>
-                <input type="text" name="portable_societe" value=" <?php if (isset($_SESSION['portable_societe'])){echo $_SESSION['portable_societe'];} ?>">
+                <input type="text" id="telephone_societe" name="telephone_societe" oninput="validationInputTelephoneSociete()" value=" <?php if (isset($_SESSION['telephone_societe'])){echo $_SESSION['telephone_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Directe* : 
                 </div>
-                <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_directe'])){echo $_SESSION['portable_directe'];} ?>">
+                <input type="text" id="telephone_directe" name="telephone_directe" oninput="validationInputTelephoneDirecte()" value=" <?php if (isset($_SESSION['telephone_directe'])){echo $_SESSION['telephone_directe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    EMail* : 
+                    EMail*: 
                 </div>
-                <input type="text" name="mail">
+                <input type="text" id="mail" name="mail" oninput="validationInputMail()">
             </div>
         </div>
         <div class="champ">
@@ -141,10 +139,190 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 </html>
 
 <script>
-   function validation() {
+    function validationInputNom() {
+        let input = document.querySelector('#nom');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputPrenom() {
+        let input = document.querySelector('#prenom');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputAdresse1() {
+        let input = document.querySelector('#adresse_1');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputNomSociete() {
+        let input = document.querySelector('#nom_societe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputPosteOccupe() {
+        let input = document.querySelector('#poste_occupe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputAdresse2() {
+        let input = document.querySelector('#adresse_2');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputTelephoneSociete() {
+        let input = document.querySelector('#telephone_societe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputTelephoneDirecte() {
+        let input = document.querySelector('#telephone_directe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputMail() {
+        let input = document.querySelector('#mail');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validation() {
         setTimeout(function redirection() {
             window.location.href='remerciement.php';
-        },1);
+            },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
 </script>
