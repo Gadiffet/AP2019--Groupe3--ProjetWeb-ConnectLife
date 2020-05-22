@@ -129,19 +129,23 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
 
 <script>
     function validationInput() {
-        const input = document.querySelector('#Nom')
-        const value = input.value
-        if (!value) {
-            input.dataset.state = ''
-            return
-        }
+        const input = document.querySelector('#Nom');
+        const value = input.value;
         
-        const trimmed = value.trim()
-        if (trimmed) {
-            input.dataset.state = 'valid'
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        var trimmed = value.trim();
+        var letters = /^[A-Za-z]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
         }
         else {
-            input.dataset.state = 'invalid'
+            input.dataset.state = 'invalid';
         }
     }
 
