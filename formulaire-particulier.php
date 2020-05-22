@@ -273,7 +273,6 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
 
-
     function verificationCheckboxMadame() {
     	document.querySelector('#monsieur').checked = false;
     }

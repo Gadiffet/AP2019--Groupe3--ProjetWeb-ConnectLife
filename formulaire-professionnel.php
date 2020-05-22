@@ -325,4 +325,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
+
+    function verificationCheckboxMadame() {
+    	document.querySelector('#monsieur').checked = false;
+    }
+      function verificationCheckboxMonsieur() {
+    	document.querySelector('#madame').checked = false;
+    }
 </script>
