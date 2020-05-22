@@ -2,14 +2,14 @@
 session_start();
 
 if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
-|| isset($_POST['adresse_2']) || isset($_POST['portable_societe']) || isset($_POST['portable_perso'])) 
+|| isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
         $_SESSION['adresse_1'] = $_POST['adresse_1'];
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
-        $_SESSION['portable_fixe'] = $_POST['portable_fixe'];
-        $_SESSION['portable_perso'] = $_POST['portable_perso'];
+        $_SESSION['telephone_fixe'] = $_POST['telephone_fixe'];
+        $_SESSION['telephone_portable'] = $_POST['telephone_portable'];
 }
 
 ?>
@@ -59,25 +59,25 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
                 <div class="text">
                     Nom* : 
                 </div>
-                <input type="text" id="Nom" name="nom" onblur="validationInput()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
+                <input type="text" id="nom" name="nom" oninput="validationInputNom()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
-                <input type="text" name="prenom" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
+                <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
-                <input type="text" name="adresse_1" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
+                <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
-                <input type="text" name="adresse_2" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
+                <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
@@ -97,19 +97,19 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
                 <div class="text">
                     Téléphone Fixe* : 
                 </div>
-                <input type="text" name="portable_fixe" value=" <?php if (isset($_SESSION['portable_fixe'])){echo $_SESSION['portable_fixe'];} ?>">
+                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value=" <?php if (isset($_SESSION['portable_fixe'])){echo $_SESSION['portable_fixe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Portable* : 
                 </div>
-                <input type="text" name="portable_perso" value=" <?php if (isset($_SESSION['portable_perso'])){echo $_SESSION['portable_perso'];} ?>">
+                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortale()" value=" <?php if (isset($_SESSION['telephone_perso'])){echo $_SESSION['portable_perso'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     EMail*: 
                 </div>
-                <input type="text" name="mail">
+                <input type="text" id="mail" name="mail">
             </div>
         </div>
         <div class="champ">
@@ -128,10 +128,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
 </html>
 
 <script>
-    function validationInput() {
-        const input = document.querySelector('#Nom');
-        const value = input.value;
-        
+    function validationInputNom() {
+        let input = document.querySelector('#nom');
+        let value = input.value;
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
@@ -139,8 +138,128 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
-        var trimmed = value.trim();
-        var letters = /^[A-Za-z]+$/;
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputPrenom() {
+        let input = document.querySelector('#prenom');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputAdresse1() {
+        let input = document.querySelector('#adresse_1');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputAdresse2() {
+        let input = document.querySelector('#adresse_2');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9\-]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputTelephoneFixe() {
+        let input = document.querySelector('#telephone_fixe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputTelephonePortable() {
+        let input = document.querySelector('#telephone_perso');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputMail() {
+        let input = document.querySelector('#mail');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
