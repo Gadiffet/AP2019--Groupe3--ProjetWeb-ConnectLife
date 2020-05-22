@@ -118,8 +118,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
         </div>
 
         <!--Validation-->
-        <div onclick="validation()" class="validation">
-            <input type="submit" value="Valider" placeholder="valider" class="valider"/>
+        <div class="validation">
+            <input type="submit" value="Valider" onclick="validation()" placeholder="valider" class="valider"/>
         </div>
     </form>
 </body>
