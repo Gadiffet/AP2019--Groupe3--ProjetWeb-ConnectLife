@@ -275,9 +275,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
 
 
     function verificationCheckboxMadame() {
-    	document.querySelector('#madame').checked = false;
+    	document.querySelector('#monsieur').checked = false;
     }
       function verificationCheckboxMonsieur() {
-    	document.querySelector('#monsieur').checked = false;
+    	document.querySelector('#madame').checked = false;
     }
 </script>
