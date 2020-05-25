@@ -39,11 +39,20 @@ Normaly, <i>"htdocs"</i> is here :
 ```
 C:\xampp\htdocs
 ```
-Now, you must clone the project with your terminal :
 
-"SCREEN IS COMMING SOON"
+Go to the GitLab Repository and Copy the URL.
 
-After the clone, all the project files are in <i>"htdocs"</i>
+![Clone1](https://user-images.githubusercontent.com/56682141/82815372-5450fc80-9e99-11ea-9d61-2ce8c3332c10.PNG)
+
+Now, you must clone the project with your terminal. With 
+
+```
+git clone
+```
+
+![Clone2](https://user-images.githubusercontent.com/56682141/82818879-b0b71a80-9e9f-11ea-96a8-941819acff57.PNG)
+
+After the clone, all the project files are in <i>"htdocs"</i>, with this name <i>"AP12019--Groupe3--ProjetWeb-ConnectLife"</i>
 
 ### Setup DataBase
 
