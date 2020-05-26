@@ -44,7 +44,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         <div class="formulaire">
             <div class="civilité">
                 <div class="text">
-                    Civilité* :
+                    Civilté* :
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
