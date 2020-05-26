@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) 
-|| isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe'])) 
+|| isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['is_societe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -12,6 +12,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
         $_SESSION['telephone_societe'] = $_POST['telephone_societe'];
         $_SESSION['telephone_directe'] = $_POST['telephone_directe'];
+        $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
 ?>
@@ -44,7 +45,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         <div class="formulaire">
             <div class="civilité">
                 <div class="text">
-                    Civilté* :
+                    Civilité* :
                 </div>
                 <div class="checkbox">
                     <div class="checkbox-Madame">
@@ -128,7 +129,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             *: Champ à saisie obligatoire
         </div>
         <div style="visibility:hidden;">
-            <input type="checkbox" name="is_societe"/>
+            <input type="checkbox" name="is_societe" value=1/>
         </div>
         <!--Validation-->
         <div class="validation">
