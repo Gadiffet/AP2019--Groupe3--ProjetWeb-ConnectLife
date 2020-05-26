@@ -24,7 +24,7 @@
     <div class="text">
         <p>Nous sommes désolées !</p>
         <p>Le formulaire a déjà était renseigné.</p>
-        <p>Si vous n'êtes pas au courant, veuillez contacter le service de Mass-Mailing pour des informations complémentaires.</p>
+        <p>Si vous n'êtes pas au courant, veuillez contacter le service de Mass-emailing pour des informations complémentaires.</p>
     </div>
 </body>
 </html>

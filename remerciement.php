@@ -5,6 +5,7 @@ $Nomclient = $_SESSION['nom'];
 $emailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
 
+$guid = bin2hex(random_bytes(16));
 
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
@@ -13,23 +14,15 @@ catch(PDOException $e){
     echo 'erreur de connexion à la BDD';
     }
 
-$request = $pdo->prepare('INSERT INTO (GUID, nom, email, is_societe) VALUES (:uuid() ,:nom, :email, :is_societe');
+$req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
+$req->execute(array(
+    'GUID' => $guid,
+    'nom' => $_SESSION['nom'],
+    'email' => $_SESSION['email'],
+    'is_societe' => $_SESSION['is_societe'],
+));
 
-$request->bindValue(':uuid', '', PDO::PARAM_STR);
-$request->bindValue(':nom', $Nomclient, PDO::PARAM_STR);
-$request->bindValue(':email', $emailclient, PDO::PARAM_STR);
-$request->bindValue(':is_societe', $societe, PDO::PARAM_BOOL);
-
-$insertintoBDD = $request->execute();   
-
-if ($insertintoBDD){
-    $message = 'Le contact est enregistré';
-}
-else{
-    $message = 'Echec de l\'enregistrement';
-}
-
-echo 'is societe = ',$_SESSION['is_societe']
+echo 'le mec est cool et enregistré';
 
 ?>
 
@@ -59,7 +52,5 @@ echo 'is societe = ',$_SESSION['is_societe']
     <div class="text">
         Merci de votre confiance !
     </div>
-
-    <p> <?php echo $message ?> </p>
 </body>
 </html>

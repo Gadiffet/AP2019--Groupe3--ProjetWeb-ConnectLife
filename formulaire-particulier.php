@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
+if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) || isset($_POST['email']) 
 || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
@@ -10,6 +10,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
         $_SESSION['telephone_fixe'] = $_POST['telephone_fixe'];
         $_SESSION['telephone_portable'] = $_POST['telephone_portable'];
+        $_SESSION['email'] = $_POST['email'];
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
@@ -106,16 +107,16 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
             </div>
             <div class="input">
                 <div class="text">
-                    EMail*: 
+                    Email*: 
                 </div>
-                <input type="text" id="mail" name="mail" oninput="validationInputMail()">
+                <input type="text" id="email" name="email" oninput="validationInputemail()">
             </div>
         </div>
         <div class="champ">
             *: Champ à saisie obligatoire
         </div>
         <div style="visibility:hidden;">
-            <input type="checkbox" name="is_societe" value=0/>
+            <input type="checkbox" name="is_societe" checked=checked value=0 />
         </div>
 
         <!--Validation-->
@@ -247,8 +248,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1'])
         }
     }
 
-    function validationInputMail() {
-        let input = document.querySelector('#mail');
+    function validationInputemail() {
+        let input = document.querySelector('#email');
         let value = input.value;
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {

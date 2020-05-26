@@ -23,7 +23,7 @@
     <!--Message-->
     <div class="text">
         <p> Nous sommes désolées, le lien que vous tentez d'atteindre n'existe pas.</p>
-        <p> Vérifiez si le lien est correct ou veuillez contacter le service de Mass-Mailing pour des informations complémentaires.</p>
+        <p> Vérifiez si le lien est correct ou veuillez contacter le service de Mass-emailing pour des informations complémentaires.</p>
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) 
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) || isset($_POST['email']) 
 || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['is_societe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
@@ -12,6 +12,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['adresse_2'] = $_POST['adresse_2'];
         $_SESSION['telephone_societe'] = $_POST['telephone_societe'];
         $_SESSION['telephone_directe'] = $_POST['telephone_directe'];
+        $_SESSION['email'] = $_POST['email'];
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
@@ -120,16 +121,16 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
             <div class="input">
                 <div class="text">
-                    EMail*: 
+                    Email*: 
                 </div>
-                <input type="text" id="mail" name="mail" oninput="validationInputMail()">
+                <input type="text" id="email" name="email" oninput="validationInputemail()">
             </div>
         </div>
         <div class="champ">
             *: Champ à saisie obligatoire
         </div>
         <div style="visibility:hidden;">
-            <input type="checkbox" name="is_societe" value=1/>
+            <input type="checkbox" name="is_societe" checked=checked value=1 />
         </div>
         <!--Validation-->
         <div class="validation">
@@ -300,8 +301,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         }
     }
 
-    function validationInputMail() {
-        let input = document.querySelector('#mail');
+    function validationInputemail() {
+        let input = document.querySelector('#email');
         let value = input.value;
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
