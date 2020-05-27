@@ -1,0 +1,11 @@
+<!-- Racine -->
+<!ELEMENT clients (personne*)>
+
+<!-- Personne -->
+<!ELEMENT personne (nom, email, professionnel)>
+<!ATTLIST personne GUID CDATA #REQUIRED>
+
+<!-- Nom, email, Professionnel -->
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT professionnel (#PCDATA)>
