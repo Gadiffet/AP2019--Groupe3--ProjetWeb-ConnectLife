@@ -6,8 +6,8 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Adresse email Invalide</title>
-    <link rel="stylesheet" type="text/css" href="adresse-email-invalide.css">
+    <title>Adresse mail Invalide</title>
+    <link rel="stylesheet" type="text/css" href="adresse-mail-invalide.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -27,11 +27,11 @@ session_start();
 
     <!--Message-->
     <div class="text">
-        <p>Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse email est invalide.</p>
+        <p>Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse mail est invalide.</p>
 
         <p>Vous pouvez retourner au formulaire <a href="formulaire-particulier.php"> ici</a></p>
 
-        <P>Veuillez contacter le service de Mass-emailing pour des informations complémentaires.</p>
+        <P>Veuillez contacter le service de Mass-mailing pour des informations complémentaires.</p>
     </div>
 </body>
 </html>

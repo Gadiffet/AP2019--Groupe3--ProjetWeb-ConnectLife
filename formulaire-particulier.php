@@ -22,6 +22,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
     <meta charset="UTF-8">
     <title>Formulaire</title>
     <link rel="stylesheet" type="text/css" href="formulaire-particulier.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+    <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -80,18 +83,16 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
             <div class="input">
-                <div class="text">
-                    Code Postale* : 
-                </div>
-                <input type="int" name="code_postale">
-            </div>
-            <div class="input">
-                <div class="text">
-                    Ville* :
-                </div>
-                <select>
-                    <option value="ville" name="ville">
-                </select>
+                <form action="#">
+                    <div class="text">
+                        Code Postal* : 
+                    </div>
+                    <input type="text" id="CP" name="CP" size="6">
+                    <div class="text">
+                        Ville* :
+                    </div>
+                    <input type="text" id="nom_ville" name="nom_ville">
+                </form>
             </div>
             <div class="input">
                 <div class="text">
@@ -107,9 +108,9 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
             </div>
             <div class="input">
                 <div class="text">
-                    Email*: 
+                    mail*: 
                 </div>
-                <input type="text" id="email" name="email" oninput="validationInputemail()">
+                <input type="text" id="email" name="email" oninput="validationInputmail()">
             </div>
         </div>
         <div class="champ">
@@ -128,6 +129,47 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 </html>
 
 <script>
+    $(function ()
+    {
+        $("#CP, #nom_ville").autocomplete({
+            source: function (request, response)
+            {
+                var objData = {};
+                if ($(this.element).attr('id') == 'CP')
+                {
+                    objData = { codePostal: request.term, maxRows: 500};
+                }
+
+                $.ajax({
+                url: "./AutoCompletion.php",
+                dataType: "json",
+                data: objData,
+                type: 'POST',
+                success: function (data)
+                {
+                    response($.map(data, function (item)
+                    {
+
+                        return {
+                            label: item.CodePostal + ", " + item.Ville,
+                            value: function ()
+                            {
+                                if ($(this).attr('id') == 'CP')
+                                {
+                                    $('#nom_ville').val(item.Ville);
+                                    return item.CodePostal;
+                                }
+                            }
+                        }
+                    }));
+                }
+                });
+            },
+            minLength: 3,
+            delay: 600
+        });
+    });
+
     function validationInputNom() {
         let input = document.querySelector('#nom');
         let value = input.value;
@@ -248,7 +290,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         }
     }
 
-    function validationInputemail() {
+    function validationInputmail() {
         let input = document.querySelector('#email');
         let value = input.value;
         //Permet de "reset" l'input pour enlever le rouge ou vert

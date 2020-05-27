@@ -2,7 +2,7 @@
 session_start();
 
 $Nomclient = $_SESSION['nom'];
-$emailclient = $_SESSION['email'];
+$mailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
 
 $guid = bin2hex(random_bytes(16));
