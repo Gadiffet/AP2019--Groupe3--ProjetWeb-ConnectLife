@@ -1,11 +1,11 @@
 <?php  
 session_start();
 
+
+$guid = $_SESSION['guid'];
 $Nomclient = $_SESSION['nom'];
 $mailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
-
-$guid = bin2hex(random_bytes(16));
 
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
@@ -17,12 +17,10 @@ catch(PDOException $e){
 $req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
 $req->execute(array(
     'GUID' => $guid,
-    'nom' => $_SESSION['nom'],
-    'email' => $_SESSION['email'],
-    'is_societe' => $_SESSION['is_societe'],
+    'nom' => $Nomclient,
+    'email' => $mailclient,
+    'is_societe' => $societe,
 ));
-
-echo 'le mec est cool et enregistré';
 
 ?>
 
@@ -31,13 +29,13 @@ echo 'le mec est cool et enregistré';
 <head>
     <meta charset="UTF-8">
     <title>Merci</title>
-    <link rel="stylesheet" type="text/css" href="remerciement.css">
+    <link rel="stylesheet" type="text/css" href="/projetweb/remerciement.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
     <div class="en-tete">
         <div class="logo">
-            <img src="img/logo.PNG">
+            <img src="/projetweb/img/logo.PNG">
         </div>
         <div class="titre">
             <div class="nom-entreprise">

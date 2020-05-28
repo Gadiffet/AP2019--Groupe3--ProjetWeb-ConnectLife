@@ -16,6 +16,8 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
+$guid_perso = $_SESSION['guid']; 
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
-    <link rel="stylesheet" type="text/css" href="formulaire-particulier.css">
+    <link rel="stylesheet" type="text/css" href="/projetweb/formulaire-particulier.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
     <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
@@ -32,7 +34,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
     <!--En-tête du formulaire-->
     <div class="en-tete">
         <div class="logo">
-            <img src="img/logo.PNG">
+            <img src="/projetweb/img/logo.PNG">
         </div>
         <div class="titre">
             <div class="nom-entreprise">
@@ -366,9 +368,10 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
     }
 
     function validation() {
-        setTimeout(function redirection() {
-            window.location.href='remerciement.php';
-            },1);
+        setTimeout(function redirection() 
+        {
+            window.location.href='<?php echo "/projetweb/remerciement.php/fic?q=",$guid_perso; ?>';
+        },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }
 
