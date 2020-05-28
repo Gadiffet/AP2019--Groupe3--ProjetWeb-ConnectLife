@@ -196,7 +196,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z\-]+$/;
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -216,7 +216,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z\-]+$/;
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -236,47 +236,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\-]+$/;
-        if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-        }
-        else {
-            input.dataset.state = 'invalid';
-        }
-    }
-
-    function validationInputNomSociete() {
-        let input = document.querySelector('#nom_societe');
-        let value = input.value;
-        //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
-            input.dataset.state = '';
-            return;
-        }
-
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
-        let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\-]+$/;
-        if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-        }
-        else {
-            input.dataset.state = 'invalid';
-        }
-    }
-
-    function validationInputPosteOccupe() {
-        let input = document.querySelector('#poste_occupe');
-        let value = input.value;
-        //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
-            input.dataset.state = '';
-            return;
-        }
-
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
-        let trimmed = value.trim();
-        let letters = /^[a-zA-Z\-]+$/;
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -296,7 +256,47 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\-]+$/;
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputNomSociete() {
+        let input = document.querySelector('#nom_societe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
+
+    function validationInputPosteOccupe() {
+        let input = document.querySelector('#poste_occupe');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            return;
+        }
+
+        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }

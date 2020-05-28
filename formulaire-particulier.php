@@ -181,7 +181,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z\-]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -201,7 +201,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z\-]+$/;
+        let letters = /^[a-zA-Z\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -221,7 +221,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\-]+$/;
+        let letters = /^[a-zA-Z0-9\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
@@ -241,7 +241,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\-]+$/;
+        let letters = /^[a-zA-Z0-9\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
         }
