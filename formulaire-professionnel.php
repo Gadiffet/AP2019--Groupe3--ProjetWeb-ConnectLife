@@ -46,17 +46,17 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
     <!--Formulaire-->
     <form action="" method="post">
-        <div class="formulaire">
+        <div class="formulaire" onclick="validationCheckbox()">
             <div class="civilité">
                 <div class="text">
                     Civilité* :
                 </div>
                 <div class="checkbox">
-                    <div class="checkbox-Madame">
-                        <input type="checkbox" class="checkbox-box"> Madame
+                <div class="checkbox-Madame">
+                        <input type="checkbox" id="madame" class="checkbox-box" onclick="verificationCheckboxMadame()"> Madame
                     </div>
                     <div class="checkbox-Monsieur">
-                        <input type="checkbox" class="checkbox-box"> Monsieur
+                        <input type="checkbox" id="monsieur" class="checkbox-box" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             </div>
             <div class="input">
                 <div class="text">
-                    mail*: 
+                    Email*: 
                 </div>
                 <div id="emailValidation"></div>
                 <input type="text" id="email" name="email" oninput="validationInputmail()">
@@ -192,6 +192,18 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
             delay: 600
         });
     });
+
+    function validationCheckbox() {
+        let madame = document.querySelector('#madame');
+        let monsieur = document.querySelector('#monsieur');
+
+        if (madame || monsieur == 'on') {
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
 
     function validationInputNom() {
         let input = document.querySelector('#nom');
@@ -258,7 +270,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("nom_societeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#nom_societeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -268,7 +280,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
-            document.querySelector("poste_occupeValidation").innerHTML = "";
+            document.querySelector("#poste_occupeValidation").innerHTML = "";
             return;
         }
 
@@ -277,11 +289,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
-            document.querySelector("poste_occupeValidation").innerHTML = "Correct!";
+            document.querySelector("#poste_occupeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("poste_occupeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#poste_occupeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -350,7 +362,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#telephone_persoValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            document.querySelector("#telephone_societeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 

@@ -110,11 +110,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
                     Téléphone Portable* : 
                 </div>
                 <div id="telephone_portableValidation"></div>
-                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortale()" value=" <?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
+                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortable()" value=" <?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    mail*: 
+                    Email*: 
                 </div>
                 <div id="emailValidation"></div>
                 <input type="text" id="email" name="email" oninput="validationInputmail()">
@@ -288,17 +288,17 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#telephone_persoValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            document.querySelector("#telephone_fixeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 
     function validationInputTelephonePortable() {
-        let input = document.querySelector('#telephone_perso');
+        let input = document.querySelector('#telephone_portable');
         let value = input.value;
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
-            document.querySelector("#telephone_persoValidation").innerHTML = "";
+            document.querySelector("#telephone_portableValidation").innerHTML = "";
             return;
         }
 
@@ -307,11 +307,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
-            document.querySelector("#telephone_persoValidation").innerHTML = "Correct!";
+            document.querySelector("#telephone_portableValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#telephone_persoValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            document.querySelector("#telephone_portableValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 

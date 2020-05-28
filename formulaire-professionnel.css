@@ -56,6 +56,7 @@ form {
 .checkbox-Madame, .checkbox-Monsieur{
 	display: flex;
 	flex-direction: row;
+	border: 1 solid black;
 }
 .text{
 	width: 250px;
@@ -94,11 +95,11 @@ select{
 	height: 30px;
 }
 
-.input input[data-state="valid"] {
+.input input, .checkbox-Madame, .checkbox-Monsieur[data-state="valid"] {
 	border-color: hsl(120, 76%, 50%);
 }
 
-.input input[data-state="invalid"] {
+.input input, .checkbox-Madame, .checkbox-Monsieur[data-state="invalid"] {
 	border-color: hsl(0, 76%, 50%);
 }
 
