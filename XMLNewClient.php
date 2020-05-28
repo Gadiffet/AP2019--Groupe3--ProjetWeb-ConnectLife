@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
-    <link rel="stylesheet" type="text/css" href="XML.css">
+    <link rel="stylesheet" type="text/css" href="XMLNewClient.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -27,7 +27,7 @@
 </body>
 </html>
 
-<!--Generation XML Clients (Total) avec le DOMDocument -->
+<!--Generation XML Clients (Nouveau) avec le DOMDocument -->
 <?php
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
     $r = $pdo->query('SELECT * FROM clients');
@@ -35,14 +35,14 @@
     $xmlFile = new DOMDocument('1.0', 'utf-8');
     $xmlFile->appendChild($clients = $xmlFile->createElement('clients'));
 
-    while($rs = $r->fetch(PDO::FETCH_ASSOC)){
-        $clients->appendChild($personne = $xmlFile->createElement('personne'));
-        $personne->setAttribute('GUID', $rs['GUID']);
-        $personne->appendChild($xmlFile->createElement('nom', $rs['nom']));
-        $personne->appendChild($xmlFile->createElement('email', $rs['email']));
-        $personne->appendChild($xmlFile->createElement('professionel', $rs['is_societe']));
-    }
+    while($rs = $r->fetch(PDO::FETCH_ASSOC && $rs['GUID'] != $rs['GUID'].'TotalClients.xml')){
+            $clients->appendChild($personne = $xmlFile->createElement('personne'));
+            $personne->setAttribute('GUID', $rs['GUID']);
+            $personne->appendChild($xmlFile->createElement('nom', $rs['nom']));
+            $personne->appendChild($xmlFile->createElement('email', $rs['email']));
+            $personne->appendChild($xmlFile->createElement('professionel', $rs['is_societe']));
+        }
 
     $xmlFile->formatOutput = true;
-    $xmlFile->save('clients.xml');
+    $xmlFile->save('NouveauxClients.xml');
 ?>

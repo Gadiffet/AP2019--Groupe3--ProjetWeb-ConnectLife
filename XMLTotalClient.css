@@ -1,0 +1,55 @@
+body {
+	font-size: 20px;
+	background-color: black;
+	color: white;
+}
+.titre{
+	display: flex;
+	flex-direction: column;
+    justify-content: flex-end;
+    line-height: 0.9;
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+.logo{
+	margin-left: 10%;
+}
+.en-tete{
+	display: flex;
+	flex-direction: row;
+}
+.nom-entreprise{
+	color: grey;
+	font-size: 55px;
+}
+.slogan{
+	color: lightblue;
+	font-size: 40px;
+}
+.text{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	margin: 200px 10% 0 10%;
+	padding: 50px;
+	border: 1px solid #008B8B;
+	height: 200px;
+}
+@media screen and (max-width: 650px) {
+	.nom-entreprise{
+		font-size: 45px;
+	}
+	.slogan{
+		font-size: 30px;
+	}
+  }
+
+@media screen and (max-width: 480px) {
+	.nom-entreprise{
+		font-size: 38px;
+	}
+	.slogan{
+		font-size: 22px;
+	}
+  }
