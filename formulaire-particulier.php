@@ -62,24 +62,28 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
                 <div class="text">
                     Nom* : 
                 </div>
+                <div id="nomValidation"></div>
                 <input type="text" id="nom" name="nom" oninput="validationInputNom()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
+                <div id="prenomValidation"></div>
                 <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
+                <div id="adresse_1Validation"></div>
                 <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
+                <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
             <div class="input">
@@ -98,18 +102,21 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
                 <div class="text">
                     Téléphone Fixe* : 
                 </div>
+                <div id="telephone_fixeValidation"></div>
                 <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value=" <?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Portable* : 
                 </div>
+                <div id="telephone_portableValidation"></div>
                 <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortale()" value=" <?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     mail*: 
                 </div>
+                <div id="emailValidation"></div>
                 <input type="text" id="email" name="email" oninput="validationInputmail()">
             </div>
         </div>
@@ -172,10 +179,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 
     function validationInputNom() {
         let input = document.querySelector('#nom');
-        let value = input.value;
+        let value = input.value; 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#nomValidation").innerHTML = "";
             return;
         }
 
@@ -184,9 +192,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#nomValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#nomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -196,17 +206,20 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#prenomValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#prenomValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#prenomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -216,17 +229,20 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#adresse_1Validation").innerHTML = "";
             return;
         }
 
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#adresse_1Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -236,17 +252,20 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#adresse_2Validation").innerHTML = "";
             return;
         }
 
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#adresse_2Validation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#adresse_2Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -256,6 +275,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#telephone_fixeValidation").innerHTML = "";
             return;
         }
 
@@ -264,9 +284,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#telephone_fixeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#telephone_persoValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 
@@ -276,6 +298,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#telephone_persoValidation").innerHTML = "";
             return;
         }
 
@@ -284,9 +307,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#telephone_persoValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#telephone_persoValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 
@@ -296,17 +321,20 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#emailValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\-. ]*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#emailValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#emailValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement \"@\" ainsi qu'un domaine (Caractères autorisés : de a-z, de A-Z, Chiffres, \"-\", \".\", \"@\")";
         }
     }
 
