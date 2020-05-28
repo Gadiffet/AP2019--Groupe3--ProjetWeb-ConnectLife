@@ -48,17 +48,17 @@ $guid_perso = $_SESSION['guid'];
 
     <!--Formulaire-->
     <form action="" method="post">
-        <div class="formulaire">
+        <div class="formulaire" onclick="validationCheckbox()">
             <div class="civilité">
                 <div class="text">
                     Civilité* :
                 </div>
                 <div class="checkbox">
-                    <div class="checkbox-Madame">
-                        <input type="checkbox" class="checkbox-box"> Madame
+                <div class="checkbox-Madame">
+                        <input type="checkbox" id="madame" class="checkbox-box" onclick="verificationCheckboxMadame()"> Madame
                     </div>
                     <div class="checkbox-Monsieur">
-                        <input type="checkbox" class="checkbox-box"> Monsieur
+                        <input type="checkbox" id="monsieur" class="checkbox-box" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
             </div>
@@ -66,36 +66,42 @@ $guid_perso = $_SESSION['guid'];
                 <div class="text">
                     Nom* : 
                 </div>
+                <div id="nomValidation"></div>
                 <input type="text" id="nom" name="nom" oninput="validationInputNom()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
+                <div id="prenomValidation"></div>
                 <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Nom de la société* : 
                 </div>
+                <div id="nom_societeValidation"></div>
                 <input type="text" id="nom_societe" name="nom_societe" oninput="validationInputNomSociete()" value=" <?php if (isset($_SESSION['nom_societe'])){echo $_SESSION['nom_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Poste occupé* : 
                 </div>
+                <div id="poste_occupeValidation"></div>
                 <input type="text" id="poste_occupe" name="poste_occupe" oninput="validationInputPosteOccupe()" value=" <?php if (isset($_SESSION['poste_occupe'])){echo $_SESSION['poste_occupe'];} ?>">
             </div>   
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
+                <div id="adresse_1Validation"></div>
                 <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
+                <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
             <div class="input">
@@ -114,18 +120,21 @@ $guid_perso = $_SESSION['guid'];
                 <div class="text">
                     Téléphone Société* : 
                 </div>
+                <div id="telephone_societeValidation"></div>
                 <input type="text" id="telephone_societe" name="telephone_societe" oninput="validationInputTelephoneSociete()" value=" <?php if (isset($_SESSION['telephone_societe'])){echo $_SESSION['telephone_societe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Directe* : 
                 </div>
+                <div id="telephone_directeValidation"></div>
                 <input type="text" id="telephone_directe" name="telephone_directe" oninput="validationInputTelephoneDirecte()" value=" <?php if (isset($_SESSION['telephone_directe'])){echo $_SESSION['telephone_directe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
-                    mail*: 
+                    Email*: 
                 </div>
+                <div id="emailValidation"></div>
                 <input type="text" id="email" name="email" oninput="validationInputmail()">
             </div>
         </div>
@@ -144,6 +153,7 @@ $guid_perso = $_SESSION['guid'];
 </html>
 
 <script>
+ 
     $(function ()
     {
         $("#CP, #nom_ville").autocomplete({
@@ -185,25 +195,38 @@ $guid_perso = $_SESSION['guid'];
         });
     });
 
+    function validationCheckbox() {
+        let madame = document.querySelector('#madame');
+        let monsieur = document.querySelector('#monsieur');
 
+        if (madame || monsieur == 'on') {
+            input.dataset.state = 'valid';
+        }
+        else {
+            input.dataset.state = 'invalid';
+        }
+    }
 
     function validationInputNom() {
         let input = document.querySelector('#nom');
-        let value = input.value;
+        let value = input.value; 
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#nomValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#nomValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#nomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -213,57 +236,20 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#prenomValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#prenomValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
-        }
-    }
-
-    function validationInputAdresse1() {
-        let input = document.querySelector('#adresse_1');
-        let value = input.value;
-        //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
-            input.dataset.state = '';
-            return;
-        }
-
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
-        let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
-        if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-        }
-        else {
-            input.dataset.state = 'invalid';
-        }
-    }
-
-    function validationInputAdresse2() {
-        let input = document.querySelector('#adresse_2');
-        let value = input.value;
-        //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
-            input.dataset.state = '';
-            return;
-        }
-
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
-        let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
-        if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-        }
-        else {
-            input.dataset.state = 'invalid';
+            document.querySelector("#prenomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -273,17 +259,20 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#nom_societeValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#nom_societeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#nom_societeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -293,17 +282,66 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#poste_occupeValidation").innerHTML = "";
             return;
         }
 
-        //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-Z0-9À-ú\- ]+$/;
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#poste_occupeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#poste_occupeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+        }
+    }
+
+    function validationInputAdresse1() {
+        let input = document.querySelector('#adresse_1');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            document.querySelector("#adresse_1Validation").innerHTML = "";
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+            document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
+        }
+        else {
+            input.dataset.state = 'invalid';
+            document.querySelector("#adresse_1Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+        }
+    }
+
+    function validationInputAdresse2() {
+        let input = document.querySelector('#adresse_2');
+        let value = input.value;
+        //Permet de "reset" l'input pour enlever le rouge ou vert
+        if (!value) {
+            input.dataset.state = '';
+            document.querySelector("#adresse_2Validation").innerHTML = "";
+            return;
+        }
+
+        //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
+        let trimmed = value.trim();
+        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+            document.querySelector("#adresse_2Validation").innerHTML = "Correct!";
+        }
+        else {
+            input.dataset.state = 'invalid';
+            document.querySelector("#adresse_2Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
         }
     }
 
@@ -313,6 +351,7 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#telephone_societeValidation").innerHTML = "";
             return;
         }
 
@@ -321,9 +360,11 @@ $guid_perso = $_SESSION['guid'];
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#telephone_societeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#telephone_societeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 
@@ -333,6 +374,7 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#telephone_directeValidation").innerHTML = "";
             return;
         }
 
@@ -341,9 +383,11 @@ $guid_perso = $_SESSION['guid'];
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#telephone_directeValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#telephone_directeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
         }
     }
 
@@ -353,17 +397,20 @@ $guid_perso = $_SESSION['guid'];
         //Permet de "reset" l'input pour enlever le rouge ou vert
         if (!value) {
             input.dataset.state = '';
+            document.querySelector("#emailValidation").innerHTML = "";
             return;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\-. ]*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
+            document.querySelector("#emailValidation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
+            document.querySelector("#emailValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement \"@\" ainsi qu'un domaine (Caractères autorisés : de a-z, de A-Z, Chiffres, \"-\", \".\", \"@\")";
         }
     }
 
