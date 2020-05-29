@@ -49,6 +49,8 @@ $req->execute(array(
     <!--Message-->
     <div class="text">
         Merci de votre confiance !
+
+        Voici votre CODE PROMO de 10% : C4DR-D4RJE-FR7Y
     </div>
 </body>
 </html>
