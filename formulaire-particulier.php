@@ -26,7 +26,6 @@ $guid_perso = $_SESSION['guid'];
     <link rel="stylesheet" type="text/css" href="/projetweb/formulaire-particulier.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
-    <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -103,8 +102,7 @@ $guid_perso = $_SESSION['guid'];
                         <div id="nom_villeValidation"></div>
                         <input type="text" id="nom_ville" name="nom_ville">
                     </div>
-                </form>
-            </div>
+            </form>
             <div class="input">
                 <div class="text">
                     Téléphone Fixe* : 

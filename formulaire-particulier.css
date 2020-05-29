@@ -86,7 +86,8 @@ select{
 }
 .validation{
 	display: flex;
-	justify-content: center;
+	justify-content: right;
+	margin-right: 10%;
 	margin-top: 20px;
 }
 .valider{
@@ -113,6 +114,16 @@ select{
 }
 .checkbox-Monsieur[data-state="invalid"]{
 	border-color: hsl(0, 76%, 50%);
+}
+.ui-menu {
+	background-color: white;
+	color: black;
+	overflow: scroll;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+	height: 250px;
 }
 
 @media screen and (max-width: 650px) {
