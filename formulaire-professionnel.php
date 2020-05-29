@@ -28,7 +28,6 @@ $guid_perso = $_SESSION['guid'];
     <link rel="stylesheet" type="text/css" href="formulaire-professionnel.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
-    <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
 </head>
 <body>
     <!--En-tête du formulaire-->
@@ -330,7 +329,7 @@ $guid_perso = $_SESSION['guid'];
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
@@ -353,7 +352,7 @@ $guid_perso = $_SESSION['guid'];
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#adresse_2Validation").innerHTML = "Correct!";

@@ -269,7 +269,7 @@ $guid_perso = $_SESSION['guid'];
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
@@ -292,7 +292,7 @@ $guid_perso = $_SESSION['guid'];
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
         let trimmed = value.trim();
-        let letters = /^[a-zA-ZÀ-ú\- ]+$/;
+        let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#adresse_2Validation").innerHTML = "Correct!";
