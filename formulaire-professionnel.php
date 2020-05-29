@@ -169,7 +169,7 @@ $guid_perso = $_SESSION['guid'];
                 }
 
                 $.ajax({
-                url: "./AutoCompletion.php",
+                url: "http://localhost/AP2019--Groupe3--ProjetWeb-ConnectLife/AutoCompletion.php",
                 dataType: "json",
                 data: objData,
                 type: 'POST',
