@@ -81,12 +81,12 @@ select{
 }
 .champ{
 	display: flex;
-	justify-content: right;
+	justify-content: flex-end;
 	margin-right: 10%;
 }
 .validation{
 	display: flex;
-	justify-content: right;
+	justify-content: flex-end;
 	margin-right: 10%;
 	margin-top: 20px;
 }

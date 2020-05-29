@@ -25,15 +25,13 @@ $guid_perso = $_SESSION['guid'];
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
-    <link rel="stylesheet" type="text/css" href="formulaire-professionnel.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-professionnel.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
     <div class="en-tete">
         <div class="logo">
-            <img src="/projetweb/img/logo.PNG">
+            <img src="/AP2019--Groupe3--ProjetWeb-ConnectLife/img/logo.PNG">
         </div>
         <div class="titre">
             <div class="nom-entreprise">
@@ -155,8 +153,10 @@ $guid_perso = $_SESSION['guid'];
 </body>
 </html>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
 <script>
- 
+
     $(function ()
     {
         $("#CP, #nom_ville").autocomplete({
@@ -169,7 +169,7 @@ $guid_perso = $_SESSION['guid'];
                 }
 
                 $.ajax({
-                url: "./AutoCompletion.php",
+                url: "/opt/lampp/htdocs/AP2019--Groupe3--ProjetWeb-ConnectLife/AutoCompletion.php",
                 dataType: "json",
                 data: objData,
                 type: 'POST',
@@ -460,7 +460,7 @@ $guid_perso = $_SESSION['guid'];
     function validation() {
         setTimeout(function redirection() 
         {
-            window.location.href='<?php echo "/projetweb/remerciement.php/fic?q=",$guid_perso; ?>';
+            window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.php/fic?q=",$guid_perso; ?>';
         },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
     }

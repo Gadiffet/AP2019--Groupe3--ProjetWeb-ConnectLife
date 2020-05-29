@@ -10,13 +10,13 @@ $guid_perso = $_SESSION['guid'];
 <head>
     <meta charset="UTF-8">
     <title>Page d'accueil de renseignement</title>
-    <link rel="stylesheet" type="text/css" href="/projetweb/page-accueil-renseignement.css"/>
+    <link rel="stylesheet" type="text/css" href="/AP2019--Groupe3--ProjetWeb-ConnectLife/page-accueil-renseignement.css"/>
 </head>
 <body>
     <!--En-tête du formulaire-->
     <div class="en-tete">
         <div class="logo">
-            <img src="/projetweb/img/logo.PNG">
+            <img src="/AP2019--Groupe3--ProjetWeb-ConnectLife/img/logo.PNG">
         </div>
         <div class="titre">
             <div class="nom-entreprise">
@@ -31,8 +31,8 @@ $guid_perso = $_SESSION['guid'];
     <div class="text">
         <p>Bonjour !</p>
             <p>Pouvez vous renseigner vos coordonées !</p>
-            <p>Vous pouvez accéder au formulaire <a href="<?php echo "/projetweb/formulaire-particulier.php/fic?q=",$guid_perso; ?>" > 
-            Particulier</a> ou <a href="<?php echo "/projetweb/formulaire-professionnel.php/fic?q=",$guid_perso; ?>" > Professionnel </a>
+            <p>Vous pouvez accéder au formulaire <a href="<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-particulier.php/fic?q=",$guid_perso; ?>" > 
+            Particulier</a> ou <a href="<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-professionnel.php/fic?q=",$guid_perso; ?>" > Professionnel </a>
         </p>
     </div>
 </body>

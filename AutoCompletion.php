@@ -1,5 +1,5 @@
 <?php
-require_once('./AutoCompletionCPVille.class.php');
+require_once('/opt/lampp/htdocs/AP2019--Groupe3--ProjetWeb-ConnectLife/AutoCompletionCPVille.class.php');
 
 //Initialisation de la liste pour l'ajax
 $list = array();

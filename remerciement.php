@@ -29,13 +29,13 @@ $req->execute(array(
 <head>
     <meta charset="UTF-8">
     <title>Merci</title>
-    <link rel="stylesheet" type="text/css" href="/projetweb/remerciement.css">
+    <link rel="stylesheet" type="text/css" href="/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.css">
 </head>
 <body>
     <!--En-tête du formulaire-->
     <div class="en-tete">
         <div class="logo">
-            <img src="/projetweb/img/logo.PNG">
+            <img src="/AP2019--Groupe3--ProjetWeb-ConnectLife/img/logo.PNG">
         </div>
         <div class="titre">
             <div class="nom-entreprise">
