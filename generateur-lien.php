@@ -18,6 +18,6 @@ if(isset($_POST['guid']))
     <title>Générateur lien personnel</title>
 </head>
 <body>
-    <?php echo "page-accueil-renseignement.php/fic?q=".$guid ?>
+    <?php echo "http://localhost/AP2019--Groupe3--ProjetWeb-ConnectLife/page-accueil-renseignement.php/fic?q=".$guid ?>
 </body>
 </html>
