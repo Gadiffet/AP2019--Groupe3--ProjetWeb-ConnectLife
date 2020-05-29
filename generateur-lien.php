@@ -2,7 +2,6 @@
 session_start();
 
 $guid = bin2hex(random_bytes(16));
-header("location:page-accueil-renseignement.php/fic?q=".$guid);
 
 $_POST['guid'] = $guid;
 
@@ -19,6 +18,6 @@ if(isset($_POST['guid']))
     <title>Générateur lien personnel</title>
 </head>
 <body>
-    <?php echo " le guid = ",$_SESSION['guid']; ?>
+    <?php echo "page-accueil-renseignement.php/fic?q=".$guid ?>
 </body>
 </html>
