@@ -33,6 +33,10 @@
     $r = $pdo->query('SELECT * FROM clients');
 
     $xmlFile = new DOMDocument('1.0', 'utf-8');
+    $xmlFile->xmlStandalone = false;
+    $implementation = new DOMImplementation();
+    $dtd = $implementation->createDocumentType('clients', '', 'Totalclients.dtd');
+    $xmlFile = $implementation->createDocument("", "", $dtd);
     $xmlFile->appendChild($clients = $xmlFile->createElement('clients'));
 
     while($rs = $r->fetch(PDO::FETCH_ASSOC && $rs['GUID'] != $rs['GUID'].'TotalClients.xml')){

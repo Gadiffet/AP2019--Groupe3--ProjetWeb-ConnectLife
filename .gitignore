@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 dist
-clients.xml
+TotalClients.xml
+NouveauxClients.xml
 
 # local env files
 .env.local

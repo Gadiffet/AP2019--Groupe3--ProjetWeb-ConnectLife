@@ -25,7 +25,7 @@ $guid_perso = $_SESSION['guid'];
 <head>
     <meta charset="UTF-8">
     <title>Formulaire</title>
-    <link rel="stylesheet" type="text/css" href="/projetweb/formulaire-particulier.css">
+    <link rel="stylesheet" type="text/css" href="formulaire-professionnel.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
     <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
@@ -48,13 +48,13 @@ $guid_perso = $_SESSION['guid'];
 
     <!--Formulaire-->
     <form action="" method="post">
-        <div class="formulaire" onclick="validationCheckbox()">
+        <div class="formulaire" onclick="validationTotal()">
             <div class="civilité">
                 <div class="text">
                     Civilité* :
                 </div>
                 <div class="checkbox">
-                <div class="checkbox-Madame">
+                    <div class="checkbox-Madame">
                         <input type="checkbox" id="madame" class="checkbox-box" onclick="verificationCheckboxMadame()"> Madame
                     </div>
                     <div class="checkbox-Monsieur">
@@ -104,18 +104,22 @@ $guid_perso = $_SESSION['guid'];
                 <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
-            <div class="input">
                 <form action="#">
-                    <div class="text">
-                        Code Postal* : 
+                    <div class="input">
+                        <div class="text">
+                            Code Postal* : 
+                        </div>
+                        <div id="CPValidation"></div>
+                        <input type="text" id="CP" name="CP" size="6">
                     </div>
-                    <input type="text" id="CP" name="CP" size="6">
-                    <div class="text">
-                        Ville* :
+                    <div class="input">
+                        <div class="text">
+                            Ville* :
+                        </div>
+                        <div id="nom_villeValidation"></div>
+                        <input type="text" id="nom_ville" name="nom_ville">
                     </div>
-                    <input type="text" id="nom_ville" name="nom_ville">
                 </form>
-            </div>
             <div class="input">
                 <div class="text">
                     Téléphone Société* : 
@@ -195,16 +199,31 @@ $guid_perso = $_SESSION['guid'];
         });
     });
 
+    function validationTotal(){
+        validationCheckbox()
+        validationCodePostale()
+    }
+
     function validationCheckbox() {
         let madame = document.querySelector('#madame');
         let monsieur = document.querySelector('#monsieur');
-
-        if (madame || monsieur == 'on') {
-            input.dataset.state = 'valid';
+        let checkboxMadame = document.querySelector('.checkbox-Madame');
+        let checkboxMonsieur = document.querySelector('.checkbox-Monsieur');
+        if (madame.checked || monsieur.checked == true){
+            checkboxMadame.dataset.state = 'valid';
+            checkboxMonsieur.dataset.state = 'valid';
         }
         else {
-            input.dataset.state = 'invalid';
+            checkboxMadame.dataset.state = 'invalid';
+            checkboxMonsieur.dataset.state = 'invalid';
         }
+    }
+
+    function verificationCheckboxMadame() {
+    	document.querySelector('#monsieur').checked = false;
+    }
+      function verificationCheckboxMonsieur() {
+    	document.querySelector('#madame').checked = false;
     }
 
     function validationInputNom() {
@@ -345,6 +364,31 @@ $guid_perso = $_SESSION['guid'];
         }
     }
 
+    function validationCodePostale() {
+        let input = document.querySelector('#CP');
+        let input2 = document.querySelector('#nom_ville');
+        let value = input.value;
+        if (!value) {
+            input.dataset.state = '';
+            document.querySelector("#CPValidation").innerHTML = "";
+            return;
+        }
+
+        //On verifie qu'il y a que des chiffres
+        let trimmed = value.trim();
+        let letters = /^[0-9]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+            input2.dataset.state = 'valid';
+            document.querySelector("#CPValidation").innerHTML = "Correct!";
+        }
+        else {
+            input.dataset.state = 'invalid';
+            input2.dataset.state = 'invalid';
+            document.querySelector("#CPValidation").innerHTML = "Incorrect!";
+        }
+    }
+
     function validationInputTelephoneSociete() {
         let input = document.querySelector('#telephone_societe');
         let value = input.value;
@@ -420,12 +464,5 @@ $guid_perso = $_SESSION['guid'];
             window.location.href='<?php echo "/projetweb/remerciement.php/fic?q=",$guid_perso; ?>';
         },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
-    }
-
-    function verificationCheckboxMadame() {
-    	document.querySelector('#monsieur').checked = false;
-    }
-      function verificationCheckboxMonsieur() {
-    	document.querySelector('#madame').checked = false;
     }
 </script>

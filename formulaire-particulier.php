@@ -46,7 +46,7 @@ $guid_perso = $_SESSION['guid'];
 
     <!--Formulaire-->
     <form action="" method="post">
-        <div class="formulaire">
+        <div class="formulaire" onclick="validationTotal()">
             <div class="civilité">
                 <div class="text">
                     Civilité* :
@@ -88,16 +88,21 @@ $guid_perso = $_SESSION['guid'];
                 <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
-            <div class="input">
-                <form action="#">
-                    <div class="text">
-                        Code Postal* : 
+            <form action="#">
+                    <div class="input">
+                        <div class="text">
+                            Code Postal* : 
+                        </div>
+                        <div id="CPValidation"></div>
+                        <input type="text" id="CP" name="CP" size="6">
                     </div>
-                    <input type="text" id="CP" name="CP" size="6">
-                    <div class="text">
-                        Ville* :
+                    <div class="input">
+                        <div class="text">
+                            Ville* :
+                        </div>
+                        <div id="nom_villeValidation"></div>
+                        <input type="text" id="nom_ville" name="nom_ville">
                     </div>
-                    <input type="text" id="nom_ville" name="nom_ville">
                 </form>
             </div>
             <div class="input">
@@ -178,6 +183,33 @@ $guid_perso = $_SESSION['guid'];
             delay: 600
         });
     });
+
+    function validationTotal(){
+        validationCheckbox()
+        validationCodePostale()
+    }
+
+    function validationCheckbox() {
+        let madame = document.querySelector('#madame');
+        let monsieur = document.querySelector('#monsieur');
+        let checkboxMadame = document.querySelector('.checkbox-Madame');
+        let checkboxMonsieur = document.querySelector('.checkbox-Monsieur');
+        if (madame.checked || monsieur.checked == true){
+            checkboxMadame.dataset.state = 'valid';
+            checkboxMonsieur.dataset.state = 'valid';
+        }
+        else {
+            checkboxMadame.dataset.state = 'invalid';
+            checkboxMonsieur.dataset.state = 'invalid';
+        }
+    }
+
+    function verificationCheckboxMadame() {
+    	document.querySelector('#monsieur').checked = false;
+    }
+      function verificationCheckboxMonsieur() {
+    	document.querySelector('#madame').checked = false;
+    }
 
     function validationInputNom() {
         let input = document.querySelector('#nom');
@@ -271,6 +303,31 @@ $guid_perso = $_SESSION['guid'];
         }
     }
 
+    function validationCodePostale() {
+        let input = document.querySelector('#CP');
+        let input2 = document.querySelector('#nom_ville');
+        let value = input.value;
+        if (!value) {
+            input.dataset.state = '';
+            document.querySelector("#CPValidation").innerHTML = "";
+            return;
+        }
+
+        //On verifie qu'il y a que des chiffres
+        let trimmed = value.trim();
+        let letters = /^[0-9]+$/;
+        if(trimmed.match(letters)){
+            input.dataset.state = 'valid';
+            input2.dataset.state = 'valid';
+            document.querySelector("#CPValidation").innerHTML = "Correct!";
+        }
+        else {
+            input.dataset.state = 'invalid';
+            input2.dataset.state = 'invalid';
+            document.querySelector("#CPValidation").innerHTML = "Incorrect!";
+        }
+    }
+
     function validationInputTelephoneFixe() {
         let input = document.querySelector('#telephone_fixe');
         let value = input.value;
@@ -345,12 +402,5 @@ $guid_perso = $_SESSION['guid'];
             window.location.href='<?php echo "/projetweb/remerciement.php/fic?q=",$guid_perso; ?>';
             },1);
         alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
-    }
-
-    function verificationCheckboxMadame() {
-    	document.querySelector('#monsieur').checked = false;
-    }
-      function verificationCheckboxMonsieur() {
-    	document.querySelector('#madame').checked = false;
     }
 </script>
