@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 function GUID()
 {
@@ -12,15 +11,15 @@ function GUID()
 }
 
 $guid = GUID();
-
 $_POST['guid'] = $guid;
 
 if(isset($_POST['guid']))
 {
-    $_SESSION['guid'] = $_POST['guid'];
+    setcookie('guid', $guid, time() + 1800, '/');
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +27,6 @@ if(isset($_POST['guid']))
     <title>Générateur lien personnel</title>
 </head>
 <body>
-    <?php echo "http://localhost/AP2019--Groupe3--ProjetWeb-ConnectLife/page-accueil-renseignement.php/fic?q=".$guid ?>
+    <?php echo "http://localhost/AP2019--Groupe3--ProjetWeb-ConnectLife/page-accueil-renseignement.php/fic?q=".$guid ?> 
 </body>
 </html>

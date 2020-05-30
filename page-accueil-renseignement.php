@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-$guid_perso = $_SESSION['guid']; 
+$guid_perso = $_COOKIE['guid']; 
 
 ?>
 
@@ -29,7 +28,7 @@ $guid_perso = $_SESSION['guid'];
     </div>
     <!--Message-->
     <div class="text">
-        <p>Bonjour !</p>
+        <p>Bonjour ! </p>
             <p>Nous venons de migrer nos fichiers clients vers une base de données.</p>
             <p>Pour cela, nous vous prions de remplir le formulaire pour que nous puissions y enregistrer toutes vos coordonnées.</p>
             <p>Pour ce dérangement, nous vous offrons un dédommagement avec ce CODE PROMO -10% sur votre prochaine commande, que vous recevrez suite à l'envoi du Formulaire.</p>

@@ -1,8 +1,7 @@
 <?php  
 session_start();
 
-
-$guid = $_SESSION['guid'];
+$guid = $_COOKIE['guid'];
 $Nomclient = $_SESSION['nom'];
 $mailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
@@ -17,7 +16,7 @@ catch(PDOException $e){
 $req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
 $req->execute(array(
     'GUID' => $guid,
-    'nom' => $Nomclient,
+    'nom' => $_SESSION['nom'],
     'email' => $mailclient,
     'is_societe' => $societe,
 ));
