@@ -56,4 +56,22 @@ After the clone, all the project files are in <i>"htdocs"</i>, with this name <i
 
 ### Setup DataBase
 
-COMMING SOON
+Open XAMPP and launch MySQL :
+
+![Database1](https://user-images.githubusercontent.com/56682141/83330546-eab56180-a28f-11ea-804d-b1e40fedfe97.PNG)
+
+Go to PHPMyAdmin and create new database :
+
+![Database2](https://user-images.githubusercontent.com/56682141/83330547-eb4df800-a28f-11ea-8063-9a653121bd6f.PNG)
+
+![Database3](https://user-images.githubusercontent.com/56682141/83330544-ea1ccb00-a28f-11ea-91e4-5129ae0d0236.PNG)
+
+Now import ProjetWeb-ConnectLife.sql (Find this file in "<i>Ressources</i>"):
+
+![Database4](https://user-images.githubusercontent.com/56682141/83330545-eab56180-a28f-11ea-9060-035c969d92b8.PNG)
+
+### End
+
+You can use the project like you want.
+
+Check [Demo and Functionnality](https://gitlab.com/T.Gadiffet/AP12019--Groupe3--ProjetWeb-ConnectLife/-/blob/master/README.md) to know how work the project !
