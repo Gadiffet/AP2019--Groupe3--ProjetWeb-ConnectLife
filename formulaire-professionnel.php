@@ -146,13 +146,15 @@ $guid_perso = $_COOKIE['guid'];
         </div>
         <!--Validation-->
         <div class="validation">
-            <input type="submit" value="Valider" onclick="validation()" placeholder="valider" class="valider"/>
+            <input type="submit" value="Valider" onclick="validationFormulaire()" placeholder="valider" class="valider"/>
         </div>
     </form>
 </body>
 </html>
 
 <script>
+
+
 
     $(function ()
     {
@@ -194,10 +196,25 @@ $guid_perso = $_COOKIE['guid'];
             delay: 600
         });
     });
+    
+    function validationFormulaire(){
+        if (validationCheckbox() || validationInputNom() || validationInputPrenom() ||validationInputNomSociete() || validationInputPosteOccupe() || validationInputAdresse1() || validationCodePostale() || validationInputTelephoneDirecte() || validationInputTelephoneSociete() || validationInputmail() == 1)
+            {
+                return false;
+            }
+            else{
+                setTimeout(function redirection() {
+                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.php/fic?q=",$guid_perso; ?>';
+                    },1);
+                alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
+            }
+
+    }
 
     function validationTotal(){
-        validationCheckbox()
-        validationCodePostale()
+        validationCheckbox();
+        validationCodePostale();
+        validationInputmail();
     }
 
     function validationCheckbox() {
@@ -208,10 +225,12 @@ $guid_perso = $_COOKIE['guid'];
         if (madame.checked || monsieur.checked == true){
             checkboxMadame.dataset.state = 'valid';
             checkboxMonsieur.dataset.state = 'valid';
+            return 0;
         }
         else {
             checkboxMadame.dataset.state = 'invalid';
             checkboxMonsieur.dataset.state = 'invalid';
+            return 1;
         }
     }
 
@@ -238,10 +257,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#nomValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#nomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            return 1;
         }
     }
 
@@ -261,10 +282,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#prenomValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#prenomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            return 1;
         }
     }
 
@@ -284,10 +307,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#nom_societeValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#nom_societeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            return 1;
         }
     }
 
@@ -307,10 +332,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#poste_occupeValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#poste_occupeValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            return 1;
         }
     }
 
@@ -330,10 +357,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#adresse_1Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            return 1;
         }
     }
 
@@ -377,11 +406,13 @@ $guid_perso = $_COOKIE['guid'];
             input.dataset.state = 'valid';
             input2.dataset.state = 'valid';
             document.querySelector("#CPValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             input2.dataset.state = 'invalid';
             document.querySelector("#CPValidation").innerHTML = "Incorrect!";
+            return 1;
         }
     }
 
@@ -401,10 +432,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#telephone_societeValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#telephone_societeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            return 1;
         }
     }
 
@@ -424,10 +457,12 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#telephone_directeValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#telephone_directeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            return 1;
         }
     }
 
@@ -447,18 +482,13 @@ $guid_perso = $_COOKIE['guid'];
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             document.querySelector("#emailValidation").innerHTML = "Correct!";
+            return 0;
         }
         else {
             input.dataset.state = 'invalid';
             document.querySelector("#emailValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement \"@\" ainsi qu'un domaine (Caractères autorisés : de a-z, de A-Z, Chiffres, \"-\", \".\", \"@\")";
+            return 1;
         }
     }
 
-    function validation() {
-        setTimeout(function redirection() 
-        {
-            window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.php/fic?q=",$guid_perso; ?>';
-        },1);
-        alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
-    }
 </script>
