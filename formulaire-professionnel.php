@@ -45,7 +45,7 @@ $guid_perso = $_COOKIE['guid'];
     </div> 
 
     <!--Formulaire-->
-    <form action="" method="post">
+    <form action="#" method="post">
         <div class="formulaire" onclick="validationTotal()">
             <div class="civilité">
                 <div class="text">
@@ -102,22 +102,20 @@ $guid_perso = $_COOKIE['guid'];
                 <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
-                <form action="#">
-                    <div class="input">
-                        <div class="text">
-                            Code Postal* : 
-                        </div>
-                        <div id="CPValidation"></div>
-                        <input type="text" id="CP" name="CP" size="6">
+                <div class="input">
+                    <div class="text">
+                        Code Postal* : 
                     </div>
-                    <div class="input">
-                        <div class="text">
-                            Ville* :
-                        </div>
-                        <div id="nom_villeValidation"></div>
-                        <input type="text" id="nom_ville" name="nom_ville">
+                    <div id="CPValidation"></div>
+                    <input type="text" id="CP" name="CP" size="6">
+                </div>
+                <div class="input">
+                    <div class="text">
+                        Ville* :
                     </div>
-                </form>
+                    <div id="nom_villeValidation"></div>
+                    <input type="text" id="nom_ville" name="nom_ville">
+                </div>
             <div class="input">
                 <div class="text">
                     Téléphone Société* : 
