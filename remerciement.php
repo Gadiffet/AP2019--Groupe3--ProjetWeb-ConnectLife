@@ -20,7 +20,6 @@ $req->execute(array(
     'email' => $mailclient,
     'is_societe' => $societe,
 ));
-
 ?>
 
 <!DOCTYPE html>
