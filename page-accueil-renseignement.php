@@ -32,10 +32,8 @@ $guid_perso = $_COOKIE['guid'];
             <p>Nous venons de migrer nos fichiers clients vers une base de données.</p>
             <p>Pour cela, nous vous prions de remplir le formulaire pour que nous puissions y enregistrer toutes vos coordonnées.</p>
             <p>Pour ce dérangement, nous vous offrons un dédommagement avec ce CODE PROMO -10% sur votre prochaine commande, que vous recevrez suite à l'envoi du Formulaire.</p>
-
             <p>Vous pouvez accéder au formulaire <a href="<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-particulier.php/fic?q=",$guid_perso; ?>" > 
-            Particulier</a> ou <a href="<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-professionnel.php/fic?q=",$guid_perso; ?>" > Professionnel </a>
-        </p>
+            Particulier</a> ou <a href="<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-professionnel.php/fic?q=",$guid_perso; ?>" > Professionnel </a></p>
     </div>
 </body>
 </html>
