@@ -13,7 +13,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
-$guid_perso = $_SESSION['guid']; 
+$guid_perso = $_COOKIE['guid']; 
 
 ?>
 
