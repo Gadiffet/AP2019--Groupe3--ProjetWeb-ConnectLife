@@ -16,7 +16,7 @@ catch(PDOException $e){
 $req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
 $req->execute(array(
     'GUID' => $guid,
-    'nom' => $_SESSION['nom'],
+    'nom' => $Nomclient,
     'email' => $mailclient,
     'is_societe' => $societe,
 ));
