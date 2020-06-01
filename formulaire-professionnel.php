@@ -214,7 +214,6 @@ $guid_perso = $_COOKIE['guid'];
     function validationTotal(){
         validationCheckbox();
         validationCodePostale();
-        validationInputmail();
     }
 
     function validationCheckbox() {
@@ -248,7 +247,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#nomValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
@@ -273,7 +272,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#prenomValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
@@ -298,7 +297,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#nom_societeValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
@@ -323,7 +322,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#poste_occupeValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
@@ -348,7 +347,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#adresse_1Validation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des lettres, et on supprimer les espaces de la verification
@@ -396,7 +395,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#CPValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des chiffres
@@ -423,7 +422,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#telephone_societeValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
@@ -448,7 +447,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#telephone_directeValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que les chiffres, et on supprimer les espaces de la verification
@@ -473,7 +472,7 @@ $guid_perso = $_COOKIE['guid'];
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#emailValidation").innerHTML = "";
-            return;
+            return 1;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
@@ -490,5 +489,4 @@ $guid_perso = $_COOKIE['guid'];
             return 1;
         }
     }
-
 </script>
