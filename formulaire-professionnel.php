@@ -46,7 +46,7 @@ $guid_perso = $_COOKIE['guid'];
 
     <!--Formulaire-->
     <form action="#" method="post">
-        <div class="formulaire" onclick="validationTotal()">
+        <div class="formulaire" onclick="validationCheckbox()">
             <div class="civilité">
                 <div class="text">
                     Civilité* :
@@ -107,7 +107,7 @@ $guid_perso = $_COOKIE['guid'];
                     Code Postal* : 
                 </div>
                 <div id="CPValidation"></div>
-                <input type="text" id="CP" name="CP" size="6">
+                <input type="text" id="CP" name="CP" oninput="validationCodePostale()" size="6">
             </div>
             <div class="input">
                 <div class="text">
@@ -209,11 +209,6 @@ $guid_perso = $_COOKIE['guid'];
                 alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
             }
 
-    }
-
-    function validationTotal(){
-        validationCheckbox();
-        validationCodePostale();
     }
 
     function validationCheckbox() {
