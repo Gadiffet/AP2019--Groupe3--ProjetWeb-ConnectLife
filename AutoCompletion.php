@@ -20,10 +20,6 @@ if (isset($_POST["codePostal"]))
 {
     $strQuery .= "CP LIKE :codePostal ";
 }
-else
-{
-    $strQuery .= "nom_ville LIKE :ville ";
-}
 
 //Limite maxRows
 if (isset($_POST["maxRows"]))
