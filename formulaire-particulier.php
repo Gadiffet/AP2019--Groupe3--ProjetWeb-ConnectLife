@@ -17,7 +17,6 @@ $guid_perso = $_COOKIE['guid'];
 $mailClient = $_COOKIE['mailClient'];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,28 +63,28 @@ $mailClient = $_COOKIE['mailClient'];
                     Nom* : 
                 </div>
                 <div id="nomValidation"></div>
-                <input type="text" id="nom" name="nom" oninput="validationInputNom()" value=" <?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
+                <input type="text" id="nom" name="nom" oninput="validationInputNom()" value="<?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
                 <div id="prenomValidation"></div>
-                <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value=" <?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
+                <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value="<?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
                 <div id="adresse_1Validation"></div>
-                <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value=" <?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
+                <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value="<?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
                 <div id="adresse_2Validation"></div>
-                <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value=" <?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
+                <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value="<?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
             </div>
                 <div class="input">
                     <div class="text">
@@ -106,14 +105,14 @@ $mailClient = $_COOKIE['mailClient'];
                     Téléphone Fixe* : 
                 </div>
                 <div id="telephone_fixeValidation"></div>
-                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value=" <?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
+                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value="<?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
                     Téléphone Portable* : 
                 </div>
                 <div id="telephone_portableValidation"></div>
-                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortable()" value=" <?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
+                <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortable()" value="<?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
             </div>
             <div class="input">
                 <div class="text">
@@ -187,7 +186,7 @@ function validationFormulaire(){
                     },1);
                 alert("Votre mail n'est pas raccord avec notre fichier client, vous allez être redirigé");
         }
-        if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationCodePostale() || validationInputTelephoneFixe() || validationInputTelephonePortable() || validationInputmail() == 1)
+        if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationInputCodePostale() || validationInputmail() || validationInputTelephoneFixe() && validationInputTelephonePortable()  == 1)
             {
                 return false;
             }
@@ -333,7 +332,7 @@ function validationFormulaire(){
 
         //On verifie qu'il y a que des chiffres
         let trimmed = value.trim();
-        let letters = /^[0-9]+$/;
+        let letters = /^[0-9\-]+$/;
         if(trimmed.match(letters)){
             input.dataset.state = 'valid';
             input2.dataset.state = 'valid';
@@ -400,10 +399,11 @@ function validationFormulaire(){
 
     function validationInputmail() {
         let input = document.querySelector('#email');
-        let value = input.value;
+        let value = input.value.trim();
         let mail = <?php echo json_encode($mailClient); ?>;
+        console.log(mail);
         //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value != mail) {
+        if (value !== mail) {
             input.dataset.state = '';
             document.querySelector("#emailValidation").innerHTML = "";
             return 2;
