@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$guid_perso = $_COOKIE['guid']; 
 ?>
 
 <!DOCTYPE html>
