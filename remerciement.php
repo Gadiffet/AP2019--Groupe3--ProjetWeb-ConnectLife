@@ -1,4 +1,5 @@
 <?php  
+//demarrage sessions et var
 session_start();
 
 $guid = $_COOKIE['guid'];
@@ -6,14 +7,16 @@ $Nomclient = $_SESSION['nom'];
 $mailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
 
+// connection à la BDD
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
     }
 catch(PDOException $e){
     echo 'erreur de connexion à la BDD';
     }
-
+// requete SQL insertion
 $req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
+// execute requete
 $req->execute(array(
     'GUID' => $guid,
     'nom' => $Nomclient,

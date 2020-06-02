@@ -1,6 +1,8 @@
 <?php 
+//on start la SESSION
 session_start();
 
+//verification input non vide et création var de SESSION  
 if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['is_societe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
@@ -15,6 +17,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
+// récupération GUID clients
 $guid_perso = $_COOKIE['guid']; 
 
 ?>

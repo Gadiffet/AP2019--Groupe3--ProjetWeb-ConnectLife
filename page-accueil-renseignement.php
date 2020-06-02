@@ -1,6 +1,11 @@
 <?php
-
+//recupération guid
 $guid_perso = $_COOKIE['guid']; 
+
+if ($guid_perso === null)
+{
+    header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/lien-inconnu.php');
+}   
 
 ?>
 
