@@ -7,6 +7,35 @@ if ($guid_perso === null)
     header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/lien-inconnu.php');
 }   
 
+// connection à la BDD
+try{
+    $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
+    }
+catch(PDOException $e){
+    echo 'erreur de connexion à la BDD';
+    }
+
+// requete SQL récupération GUID
+$guid_bdd = $pdo->prepare('SELECT GUID FROM clients');
+$guid_bdd->execute();
+
+$resultatguid = $guid_bdd->fetch();
+
+$nombreval = $pdo->prepare('SELECT COUNT(GUID) FROM clients');
+$nombreval->execute();
+	  
+$nombreguid = $nombreval->fetch();
+$count = $nombreguid[0];
+
+for ($i = 0; $i < $count; $i++)
+{
+    if ($guid_perso == $resultatguid[$i])
+    {
+        header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-deja-renseigne.php');
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +52,8 @@ if ($guid_perso === null)
             <img src="/AP2019--Groupe3--ProjetWeb-ConnectLife/img/logo.PNG">
         </div>
         <div class="titre">
+        <?php 
+        ?>
             <div class="nom-entreprise">
                 ConnectLife
             </div>
