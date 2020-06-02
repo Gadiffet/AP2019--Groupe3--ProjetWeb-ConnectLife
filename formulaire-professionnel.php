@@ -19,6 +19,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 
 // récupération GUID clients
 $guid_perso = $_COOKIE['guid']; 
+$mailClient = $_COOKIE['mailClient'];
 
 ?>
 
@@ -110,7 +111,7 @@ $guid_perso = $_COOKIE['guid'];
                     Code Postal* : 
                 </div>
                 <div id="CPValidation"></div>
-                <input type="text" id="CP" name="CP" oninput="validationCodePostale()" size="6">
+                <input type="text" id="CP" name="CP" oninput="validationInputCodePostale()" size="6">
             </div>
             <div class="input">
                 <div class="text">
@@ -201,7 +202,13 @@ $guid_perso = $_COOKIE['guid'];
     });
     
     function validationFormulaire(){
-        if (validationCheckbox() || validationInputNom() || validationInputPrenom() ||validationInputNomSociete() || validationInputPosteOccupe() || validationInputAdresse1() || validationCodePostale() || validationInputTelephoneDirecte() || validationInputTelephoneSociete() || validationInputmail() == 1)
+        if (validationInputmail() == 2){
+            setTimeout(function redirection() {
+                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/adresse-mail-invalide.php/fic?q=",$guid_perso; ?>';
+                    },1);
+                alert("Votre mail n'est pas raccord avec notre fichier client, vous allez être redirigé");
+        }
+        if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationCodePostale() || validationInputTelephoneFixe() || validationInputTelephonePortable() || validationInputmail() == 1)
             {
                 return false;
             }
@@ -211,9 +218,7 @@ $guid_perso = $_COOKIE['guid'];
                     },1);
                 alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
             }
-
     }
-
     function validationCheckbox() {
         let madame = document.querySelector('#madame');
         let monsieur = document.querySelector('#monsieur');
@@ -386,7 +391,7 @@ $guid_perso = $_COOKIE['guid'];
         }
     }
 
-    function validationCodePostale() {
+    function validationInputCodePostale() {
         let input = document.querySelector('#CP');
         let input2 = document.querySelector('#nom_ville');
         let value = input.value;
@@ -466,11 +471,12 @@ $guid_perso = $_COOKIE['guid'];
     function validationInputmail() {
         let input = document.querySelector('#email');
         let value = input.value;
+        let mail = <?php echo json_encode($mailClient); ?>;
         //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
+        if (!value != mail) {
             input.dataset.state = '';
             document.querySelector("#emailValidation").innerHTML = "";
-            return 1;
+            return 2;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification

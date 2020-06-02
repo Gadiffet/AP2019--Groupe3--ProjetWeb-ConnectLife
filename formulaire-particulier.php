@@ -14,6 +14,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
 }
 
 $guid_perso = $_COOKIE['guid']; 
+$mailClient = $_COOKIE['mailClient'];
 
 ?>
 
@@ -137,9 +138,7 @@ $guid_perso = $_COOKIE['guid'];
 </body>
 </html>
 
-<script>
-
-    
+<script>  
     $(function ()
     {
         $("#CP, #nom_ville").autocomplete({
@@ -182,6 +181,12 @@ $guid_perso = $_COOKIE['guid'];
     });
 
 function validationFormulaire(){
+        if (validationInputmail() == 2){
+            setTimeout(function redirection() {
+                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/adresse-mail-invalide.php/fic?q=",$guid_perso; ?>';
+                    },1);
+                alert("Votre mail n'est pas raccord avec notre fichier client, vous allez être redirigé");
+        }
         if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationCodePostale() || validationInputTelephoneFixe() || validationInputTelephonePortable() || validationInputmail() == 1)
             {
                 return false;
@@ -192,7 +197,6 @@ function validationFormulaire(){
                     },1);
                 alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
             }
-
     }
 
     function validationCheckbox() {
@@ -317,7 +321,7 @@ function validationFormulaire(){
         }
     }
 
-    function validationCodePostale() {
+    function validationInputCodePostale() {
         let input = document.querySelector('#CP');
         let input2 = document.querySelector('#nom_ville');
         let value = input.value;
@@ -397,11 +401,12 @@ function validationFormulaire(){
     function validationInputmail() {
         let input = document.querySelector('#email');
         let value = input.value;
+        let mail = <?php echo json_encode($mailClient); ?>;
         //Permet de "reset" l'input pour enlever le rouge ou vert
-        if (!value) {
+        if (!value != mail) {
             input.dataset.state = '';
             document.querySelector("#emailValidation").innerHTML = "";
-            return 1;
+            return 2;
         }
 
         //On verifie qu'il y a que des caractère autoriser et on supprimer les espaces de la verification
