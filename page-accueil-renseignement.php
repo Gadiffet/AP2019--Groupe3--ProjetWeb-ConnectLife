@@ -19,7 +19,7 @@ catch(PDOException $e){
 $guid_bdd = $pdo->prepare('SELECT GUID FROM clients');
 $guid_bdd->execute();
 
-$resultatguid = $guid_bdd->fetch();
+$resultatguid = $guid_bdd->fetchAll(PDO::FETCH_ASSOC);
 
 $nombreval = $pdo->prepare('SELECT COUNT(GUID) FROM clients');
 $nombreval->execute();
@@ -29,7 +29,7 @@ $count = $nombreguid[0];
 
 for ($i = 0; $i < $count; $i++)
 {
-    if ($guid_perso == $resultatguid[$i])
+    if ($guid_perso == implode($resultatguid[$i]))
     {
         header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/formulaire-deja-renseigne.php');
     }
