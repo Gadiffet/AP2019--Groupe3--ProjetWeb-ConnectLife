@@ -1,7 +1,9 @@
 <?php 
+//on start la SESSION
 session_start();
 
-if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) || isset($_POST['email']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe'])) 
+//verification input non vide et création var de SESSION  
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -13,6 +15,7 @@ if(isset($_POST['nom']) || isset($_POST['prenom'])|| isset($_POST['adresse_1']) 
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
+// récupération GUID clients
 $guid_perso = $_COOKIE['guid']; 
 $mailClient = $_COOKIE['mailClient'];
 
