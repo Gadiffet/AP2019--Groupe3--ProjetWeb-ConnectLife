@@ -208,8 +208,9 @@ $mailClient = $_COOKIE['mailClient'];
                     },1);
                 alert("Votre mail n'est pas raccord avec notre fichier client, vous allez être redirigé");
         }
-        if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationInputCodePostale() || validationInputTelephoneSociete() || validationInputTelephoneDirecte() || validationInputmail() == 1)
+        else if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationInputCodePostale() || validationInputTelephoneSociete() || validationInputTelephoneDirecte() || validationInputmail() == 1)
             {
+                alert("Formulaire Incorrect");
                 return false;
             }
             else{

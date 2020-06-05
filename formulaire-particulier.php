@@ -189,8 +189,9 @@ function validationFormulaire(){
                     },1);
                 alert("Votre mail n'est pas raccord avec notre fichier client, vous allez être redirigé");
         }
-        if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationInputCodePostale() || validationInputmail() || validationInputTelephoneFixe() && validationInputTelephonePortable()  == 1)
+        else if (validationCheckbox() || validationInputNom() || validationInputPrenom() || validationInputAdresse1() || validationInputCodePostale() || validationInputmail() || validationInputTelephoneFixe() && validationInputTelephonePortable()  == 1)
             {
+                alert("Formulaire Incorrect");
                 return false;
             }
             else{
