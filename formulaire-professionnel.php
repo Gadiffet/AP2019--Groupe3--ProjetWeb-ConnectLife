@@ -21,6 +21,11 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
 $guid_perso = $_COOKIE['guid']; 
 $mailClient = $_COOKIE['mailClient'];
 
+if ($guid_perso === null)
+{
+    header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/lien-inconnu.php');
+}   
+
 ?>
 
 <!DOCTYPE html>
