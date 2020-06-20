@@ -3,7 +3,7 @@
 session_start();
 
 //verification input non vide et création var de SESSION  
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe']) || isset($_POST['CP']) || isset($_POST['nom_ville'])) 
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['CP']) || isset($_POST['nom_ville'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -12,7 +12,6 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || 
         $_SESSION['telephone_fixe'] = $_POST['telephone_fixe'];
         $_SESSION['telephone_portable'] = $_POST['telephone_portable'];
         $_SESSION['email'] = $_POST['email'];
-        $_SESSION['is_societe'] = $_POST['is_societe'];
         $_SESSION['CP'] = $_POST['CP'];
         $_SESSION['nom_ville'] = $_POST['nom_ville'];
 }
@@ -148,9 +147,6 @@ if ($guid_perso === null)
         <div class="champ">
             *: Champ à saisie obligatoire
         </div>
-        <div style="visibility:hidden;">
-            <input type="checkbox" name="is_societe" checked=checked value=0 />
-        </div>
 
         <!--Validation-->
         <div class="validation">
@@ -216,7 +212,7 @@ function validationFormulaire(){
             }
             else{
                 setTimeout(function redirection() {
-                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.php/fic?q=",$guid_perso; ?>';
+                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement_part.php/fic?q=",$guid_perso; ?>';
                     },1);
                 alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
             }

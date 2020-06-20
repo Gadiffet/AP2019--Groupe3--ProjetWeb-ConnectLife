@@ -2,10 +2,9 @@
 //demarrage sessions et var
 session_start();
 $guid = $_COOKIE['guid'];
-$nomclient = $_SESSION['nom'];
-$prenomclient = $_SESSION['prenom'];
-$mailclient = $_SESSION['email'];
-$societe = $_SESSION['is_societe'];
+$nom_client = $_SESSION['nom'];
+$prenom_client = $_SESSION['prenom'];
+$mail_client = $_SESSION['email'];
 $adresse_1 = $_SESSION['adresse_1'];
 $adresse_2 = $_SESSION['adresse_2'];
 $tel_fixe = $_SESSION['telephone_fixe'];
@@ -29,15 +28,15 @@ $req = $pdo->prepare('INSERT INTO client_particulier(GUID, sexe, nom, prenom, ad
 $req->execute(array(
     'GUID' => $guid,
     'sexe' => $sexe,
-    'nom' => $nomclient,
-    'prenom' => $prenomclient,
+    'nom' => $nom_client,
+    'prenom' => $prenom_client,
     'adresse_1' => $adresse_1,
     'adresse_2' => $adresse_2,
     'CP' => $CP,
     'nom_ville' => $nom_ville,
     'telephone_fixe' => $tel_fixe,
     'telephone_portable' => $tel_portable,
-    'email' => $mailclient,
+    'email' => $mail_client,
 ));
 ?>
 

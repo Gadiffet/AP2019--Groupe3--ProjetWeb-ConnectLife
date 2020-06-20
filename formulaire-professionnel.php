@@ -3,7 +3,7 @@
 session_start();
 
 //verification input non vide et création var de SESSION  
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['is_societe'])) 
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['CP']) || isset($_POST['nom_ville'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -14,16 +14,20 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['telephone_societe'] = $_POST['telephone_societe'];
         $_SESSION['telephone_directe'] = $_POST['telephone_directe'];
         $_SESSION['email'] = $_POST['email'];
-        $_SESSION['is_societe'] = $_POST['is_societe'];
+        $_SESSION['CP'] = $_POST['CP'];
+        $_SESSION['nom_ville'] = $_POST['nom_ville'];
 }
 
-if($_POST['madame'])
+if(isset($_POST['madame']) || isset($_POST['monsieur']))
 {
-    $_SESSION['sexe'] = "madame";
-}
-else
-{
-    $_SESSION['sexe'] = "monsieur";
+    if($_POST['madame'])
+    {
+        $_SESSION['sexe'] = "madame";
+    }
+    else
+    {
+        $_SESSION['sexe'] = "monsieur";
+    }
 }
 
 // récupération GUID clients
@@ -160,9 +164,7 @@ if ($guid_perso === null)
         <div class="champ">
             *: Champ à saisie obligatoire
         </div>
-        <div style="visibility:hidden;">
-            <input type="checkbox" name="is_societe" checked=checked value=1 />
-        </div>
+
         <!--Validation-->
         <div class="validation">
             <input type="submit" value="Valider" onclick="validationFormulaire()" placeholder="valider" class="valider"/>
@@ -230,7 +232,7 @@ if ($guid_perso === null)
             }
             else{
                 setTimeout(function redirection() {
-                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement.php/fic?q=",$guid_perso; ?>';
+                    window.location.href='<?php echo "/AP2019--Groupe3--ProjetWeb-ConnectLife/remerciement_pro.php/fic?q=",$guid_perso; ?>';
                     },1);
                 alert("Nous avons pris en compte votre formulaire ! Vous allez etre redirigé");
             }

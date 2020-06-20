@@ -17,12 +17,12 @@ catch(PDOException $e){
     }
 
 // requete SQL récupération GUID
-$guid_bdd = $pdo->prepare('SELECT GUID FROM clients');
+$guid_bdd = $pdo->prepare('SELECT GUID FROM client_pro');
 $guid_bdd->execute();
 
 $resultatguid = $guid_bdd->fetchAll(PDO::FETCH_ASSOC);
 
-$nombreval = $pdo->prepare('SELECT COUNT(GUID) FROM clients');
+$nombreval = $pdo->prepare('SELECT COUNT(GUID) FROM client_pro');
 $nombreval->execute();
 	  
 $nombreguid = $nombreval->fetch();
