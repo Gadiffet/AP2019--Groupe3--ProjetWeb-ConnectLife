@@ -27,8 +27,8 @@ session_start();
 
     <!--Message-->
     <div class="text">
-        <p>Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse mail est different de celui inscrit dans notre fichier client.</p>
-        <p>Veuillez saisir l'adresse mail dans la quelle vous avez reçu notre formulaire</p>
+        <p>Nous sommes désolés <?php echo $_SESSION['nom'] .' '. $_SESSION['prenom'] ; ?>, votre Adresse mail est diffèrent de celui inscrit dans notre fichier client.</p>
+        <p>Veuillez saisir l'adresse mail dans laquelle vous avez reçu notre formulaire.</p>
         <!--Retour à la page precedente-->
         <p>Vous pouvez retourner au formulaire <a href="<?php echo $_SERVER['HTTP_REFERER'];?>"> ici</a></p> 
         <P>Veuillez contacter le service de Mass-mailing pour des informations complémentaires.</p>
