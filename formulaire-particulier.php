@@ -334,6 +334,7 @@ function validationFormulaire(){
         if (!value) {
             input.dataset.state = '';
             document.querySelector("#CPValidation").innerHTML = "";
+            document.querySelector("#nom_villeValidation").innerHTML = "";
             return 1;
         }
 
