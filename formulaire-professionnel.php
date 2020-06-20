@@ -60,12 +60,12 @@ if ($guid_perso === null)
                 <div class="text">
                     Civilité* :
                 </div>
-                <div class="checkbox">
-                    <div class="checkbox-Madame">
-                        <input type="checkbox" id="madame" class="checkbox-box" onclick="verificationCheckboxMadame()"> Madame
+                <div class="radioInputGroup">
+                    <div class="radioContainer">
+                        <input type="radio" id="madame" class="checkbox-box checkbox-Madame" onclick="verificationCheckboxMadame()"> Madame
                     </div>
-                    <div class="checkbox-Monsieur">
-                        <input type="checkbox" id="monsieur" class="checkbox-box" onclick="verificationCheckboxMonsieur()"> Monsieur
+                    <div class="radioContainer">
+                        <input type="radio" id="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
             </div>

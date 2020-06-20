@@ -30,7 +30,8 @@
 <!--Generation XML Clients (Nouveau) avec le DOMDocument -->
 <?php
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
-    $r = $pdo->query('SELECT * FROM clients');
+    //On prend les clients qui ont comme valeur exported = 0
+    $r = $pdo->query('SELECT * FROM clients WHERE exported = 0');
 
     $xmlFile = new DOMDocument('1.0', 'utf-8');
     $xmlFile->xmlStandalone = false;
@@ -39,12 +40,14 @@
     $xmlFile = $implementation->createDocument("", "", $dtd);
     $xmlFile->appendChild($clients = $xmlFile->createElement('clients'));
 
-    while($rs = $r->fetch(PDO::FETCH_ASSOC && $rs['GUID'] != $rs['GUID'].'TotalClients.xml')){
+    while($rs = $r->fetch(PDO::FETCH_ASSOC)){
             $clients->appendChild($personne = $xmlFile->createElement('personne'));
             $personne->setAttribute('GUID', $rs['GUID']);
             $personne->appendChild($xmlFile->createElement('nom', $rs['nom']));
             $personne->appendChild($xmlFile->createElement('email', $rs['email']));
             $personne->appendChild($xmlFile->createElement('professionel', $rs['is_societe']));
+            //On ajoute la valeur 1 a Export
+            $r = 'UPDATE connectlife.clients SET exported = 1 WHERE id=:id';
         }
 
     $xmlFile->formatOutput = true;
