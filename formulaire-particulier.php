@@ -53,7 +53,7 @@ if ($guid_perso === null)
     <!--Formulaire-->
     <form action="#" method="post">
         <div class="formulaire" onclick="validationCheckbox()">
-            <div class="civilité">
+            <div class="civilite">
                 <div class="text">
                     Civilité* :
                 </div>
@@ -65,69 +65,73 @@ if ($guid_perso === null)
                         <input type="radio" id="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
+                <div class="erreurInput" id="civiliteValidation"></div>
             </div>
             <div class="input">
                 <div class="text">
                     Nom* : 
                 </div>
-                <div id="nomValidation"></div>
                 <input type="text" id="nom" name="nom" oninput="validationInputNom()" value="<?php if (isset($_SESSION['nom'])){echo $_SESSION['nom'];} ?>">
+                <div class="erreurInput" id="nomValidation"></div>
             </div>
             <div class="input">
                 <div class="text">
                     Prenom* : 
                 </div>
-                <div id="prenomValidation"></div>
                 <input type="text" id="prenom" name="prenom" oninput="validationInputPrenom()" value="<?php if (isset($_SESSION['prenom'])){echo $_SESSION['prenom'];} ?>">
+                <div class="erreurInput" id="prenomValidation"></div>
             </div>
             <div class="input">
                 <div class="text">
                     Adresse1* : 
                 </div>
-                <div id="adresse_1Validation"></div>
                 <input type="text" id="adresse_1" name="adresse_1" oninput="validationInputAdresse1()" value="<?php if (isset($_SESSION['adresse_1'])){echo $_SESSION['adresse_1'];} ?>">
+                <div class="erreurInput" id="adresse_1Validation"></div>
             </div>
             <div class="input">
                 <div class="text">
                     Adresse2 : 
                 </div>
-                <div id="adresse_2Validation"></div>
                 <input type="text" id="adresse_2" name="adresse_2" oninput="validationInputAdresse2()" value="<?php if (isset($_SESSION['adresse_2'])){echo $_SESSION['adresse_2'];} ?>">
+                <div class="erreurInput" id="adresse_2Validation"></div>
             </div>
                 <div class="input">
                     <div class="text">
                         Code Postal* : 
                     </div>
-                    <div id="CPValidation"></div>
                     <input type="text" id="CP" name="CP" oninput="validationInputCodePostale()" size="6">
+                    <div class="erreurInput" id="CPValidation"></div>
                 </div>
                 <div class="input">
                     <div class="text">
                         Ville* :
                     </div>
-                    <div id="nom_villeValidation"></div>
                     <input type="text" id="nom_ville" name="nom_ville" disabled="disabled">
+                    <div class="erreurInput" id="nom_villeValidation"></div>
                 </div>
-            <div class="input">
-                <div class="text">
-                    Téléphone Fixe* : 
-                </div>
-                <div id="telephone_fixeValidation"></div>
-                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value="<?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
+            <div class="information">
+                Remplisez au moins un numéro de téléphone *
             </div>
             <div class="input">
                 <div class="text">
-                    Téléphone Portable* : 
+                    Téléphone Fixe : 
                 </div>
-                <div id="telephone_portableValidation"></div>
+                <input type="text" id="telephone_fixe" name="telephone_fixe" oninput="validationInputTelephoneFixe()" value="<?php if (isset($_SESSION['telephone_fixe'])){echo $_SESSION['telephone_fixe'];} ?>">
+                <div class="erreurInput" id="telephone_fixeValidation"></div>
+            </div>
+            <div class="input">
+                <div class="text">
+                    Téléphone Portable : 
+                </div>
                 <input type="text" id="telephone_portable" name="telephone_portable" oninput="validationInputTelephonePortable()" value="<?php if (isset($_SESSION['telephone_portable'])){echo $_SESSION['telephone_portable'];} ?>">
+                <div class="erreurInput" id="telephone_portableValidation"></div>
             </div>
             <div class="input">
                 <div class="text">
                     Email*: 
                 </div>
-                <div id="emailValidation"></div>
                 <input type="text" id="email" name="email" oninput="validationInputmail()">
+                <div class="erreurInput" id="emailValidation"></div>
             </div>
         </div>
         <div class="champ">
@@ -215,11 +219,13 @@ function validationFormulaire(){
         if (madame.checked || monsieur.checked == true){
             checkboxMadame.dataset.state = 'valid';
             checkboxMonsieur.dataset.state = 'valid';
+            document.querySelector("#civiliteValidation").innerHTML = "";
             return 0;
         }
         else {
             checkboxMadame.dataset.state = 'invalid';
             checkboxMonsieur.dataset.state = 'invalid';
+            document.querySelector("#civiliteValidation").innerHTML = "Veuillez indiquer votre civilité.";
             return 1;
         }
     }
@@ -245,13 +251,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#nomValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#nomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#nomValidation").innerHTML = "Veuillez indiquer un nom valide.";
             return 1;
         }
     }
@@ -270,13 +274,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#prenomValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#prenomValidation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#prenomValidation").innerHTML = "Veuillez indiquer un prenom valide.";
             return 1;
         }
     }
@@ -295,13 +297,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#adresse_1Validation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#adresse_1Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#adresse_1Validation").innerHTML = "Veuillez indiquer une Adresse";
             return 1;
         }
     }
@@ -320,12 +320,10 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[0-9a-zA-ZÀ-ú\- ]+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#adresse_2Validation").innerHTML = "Correct!";
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#adresse_2Validation").innerHTML = "Incorrect! (Caractères autorisés : de a-z, de A-Z, Accents, \"-\" et les Espaces)";
+            document.querySelector("#adresse_2Validation").innerHTML = "Veuillez indiquer une Adresse.";
         }
     }
 
@@ -343,15 +341,13 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[0-9\-]+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            input2.dataset.state = 'valid';
-            document.querySelector("#CPValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
             input2.dataset.state = 'invalid';
-            document.querySelector("#CPValidation").innerHTML = "Incorrect!";
+            document.querySelector("#CPValidation").innerHTML = "Veuillez indiquer un code postal existant.";
+            document.querySelector("#nom_villeValidation").innerHTML = "Veuillez choisir un ville dans la liste.";
             return 1;
         }
     }
@@ -370,13 +366,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#telephone_fixeValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#telephone_fixeValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            document.querySelector("#telephone_fixeValidation").innerHTML = "Veuillez indiquer un numéro de téléphone valide.";
             return 1;
         }
     }
@@ -395,13 +389,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#telephone_portableValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#telephone_portableValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement 10 Chiffres (Caractères autorisés : Chiffres, \"-\", \".\" ou Espace)";
+            document.querySelector("#telephone_portableValidation").innerHTML = "Veuillez indiquer un numéro de téléphone valide.";
             return 1;
         }
     }
@@ -422,13 +414,11 @@ function validationFormulaire(){
         let trimmed = value.trim();
         let letters = /^[0-9a-zA-ZÀ-ú\-. ]*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(trimmed.match(letters)){
-            input.dataset.state = 'valid';
-            document.querySelector("#emailValidation").innerHTML = "Correct!";
             return 0;
         }
         else {
             input.dataset.state = 'invalid';
-            document.querySelector("#emailValidation").innerHTML = "Incorrect! Vous devez avoir obligatoirement \"@\" ainsi qu'un domaine (Caractères autorisés : de a-z, de A-Z, Chiffres, \"-\", \".\", \"@\")";
+            document.querySelector("#emailValidation").innerHTML = "Veuillez indiquer un email valide.";
             return 1;
         }
     }

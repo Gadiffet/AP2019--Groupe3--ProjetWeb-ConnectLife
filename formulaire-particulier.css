@@ -38,9 +38,8 @@ form {
 	margin-left: 10%;
 	margin-right: 10%;
 }
-.civilité{
-	display: flex;
-	margin-bottom: 15px;
+.civilite{
+	display: inline;
 }
 .text{
 	width: 250px;
@@ -80,20 +79,11 @@ select{
 	width: 100px;
 	height: 30px;
 }
-.input input[data-state="valid"] {
-	border-color: hsl(120, 76%, 50%);
-}
 .input input[data-state="invalid"] {
 	border-color: hsl(0, 76%, 50%);
 }
-.checkbox-Madame[data-state="valid"]{
-	border-color: hsl(120, 76%, 50%);
-}
 .checkbox-Madame[data-state="invalid"]{
 	border-color: hsl(0, 76%, 50%);
-}
-.checkbox-Monsieur[data-state="valid"]{
-	border-color: hsl(120, 76%, 50%);
 }
 .checkbox-Monsieur[data-state="invalid"]{
 	border-color: hsl(0, 76%, 50%);
@@ -135,6 +125,14 @@ select{
 .radioInputGroup .radioContainer input[type=radio]:hover {
 	cursor: pointer;
 }
+.erreurInput{
+	color:red;
+	margin-bottom: 10px;
+}
+.information{
+	margin-top: 5px;
+	margin-bottom: 12px;
+}
 
 @media screen and (max-width: 650px) {
 	.nom-entreprise{
@@ -142,9 +140,6 @@ select{
 	}
 	.slogan{
 		font-size: 30px;
-	}
-	.civilité{
-		display: inline;
 	}
   }
 
