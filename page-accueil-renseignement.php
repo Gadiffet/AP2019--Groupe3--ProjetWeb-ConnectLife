@@ -2,6 +2,7 @@
 //recupération guid
 $guid_perso = $_COOKIE['guid']; 
 
+//lien inexistant
 if ($guid_perso === null)
 {
     header('Location: /AP2019--Groupe3--ProjetWeb-ConnectLife/lien-inconnu.php');
@@ -27,6 +28,7 @@ $nombreval->execute();
 $nombreguid = $nombreval->fetch();
 $count = $nombreguid[0];
 
+//Formulaire déjà rempli
 for ($i = 0; $i < $count; $i++)
 {
     if ($guid_perso == implode($resultatguid[$i]))

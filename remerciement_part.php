@@ -1,27 +1,43 @@
 <?php  
 //demarrage sessions et var
 session_start();
-
 $guid = $_COOKIE['guid'];
-$Nomclient = $_SESSION['nom'];
+$nomclient = $_SESSION['nom'];
+$prenomclient = $_SESSION['prenom'];
 $mailclient = $_SESSION['email'];
 $societe = $_SESSION['is_societe'];
+$adresse_1 = $_SESSION['adresse_1'];
+$adresse_2 = $_SESSION['adresse_2'];
+$tel_fixe = $_SESSION['telephone_fixe'];
+$tel_portable = $_SESSION['telephone_portable'];
+$CP = $_SESSION['CP'];
+$nom_ville = $_SESSION['nom_ville'];
+$sexe = $_SESSION['sexe']  
 
 // connection à la BDD
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
     }
-catch(PDOException $e){
+catch(PDOException $e)
+    {
     echo 'erreur de connexion à la BDD';
     }
-// requete SQL insertion
-$req = $pdo->prepare('INSERT INTO clients(GUID, nom, email, is_societe) VALUES(:GUID, :nom, :email, :is_societe)');
-// execute requete
+
+// requête SQL
+$req = $pdo->prepare('INSERT INTO client_particulier(GUID, sexe, nom, prenom, adresse_1, adresse_2, CP, nom_ville, telephone_fixe, telephone_portable, email) VALUES(:GUID, :sexe, :nom, :prenom, :adresse_1, :adresse_2, :CP, :nom_ville, :telephone_fixe, :telephone_portable, :email)');
+// execute SQL
 $req->execute(array(
     'GUID' => $guid,
-    'nom' => $Nomclient,
+    'sexe' => $sexe,
+    'nom' => $nomclient,
+    'prenom' => $prenomclient,
+    'adresse_1' => $adresse_1,
+    'adresse_2' => $adresse_2,
+    'CP' => $CP,
+    'nom_ville' => $nom_ville,
+    'telephone_fixe' => $tel_fixe,
+    'telephone_portable' => $tel_portable,
     'email' => $mailclient,
-    'is_societe' => $societe,
 ));
 ?>
 

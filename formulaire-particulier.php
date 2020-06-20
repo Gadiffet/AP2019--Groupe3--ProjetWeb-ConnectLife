@@ -3,7 +3,7 @@
 session_start();
 
 //verification input non vide et création var de SESSION  
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe'])) 
+if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_fixe']) || isset($_POST['telephone_portable']) || isset($_POST['is_societe']) || isset($_POST['CP']) || isset($_POST['nom_ville'])) 
 {
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
@@ -13,6 +13,17 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || 
         $_SESSION['telephone_portable'] = $_POST['telephone_portable'];
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['is_societe'] = $_POST['is_societe'];
+        $_SESSION['CP'] = $_POST['CP'];
+        $_SESSION['nom_ville'] = $_POST['nom_ville'];
+}
+
+if($_POST['madame'])
+{
+    $_SESSION['sexe'] = "madame";
+}
+else
+{
+    $_SESSION['sexe'] = "monsieur";
 }
 
 // récupération GUID clients
@@ -59,10 +70,10 @@ if ($guid_perso === null)
                 </div>
                 <div class="radioInputGroup">
                     <div class="radioContainer">
-                        <input type="radio" id="madame" class="checkbox-box checkbox-Madame" onclick="verificationCheckboxMadame()"> Madame
+                        <input type="radio" id="madame" name="madame" class="checkbox-box checkbox-Madame" checked="checked" onclick="verificationCheckboxMadame()"> Madame
                     </div>
                     <div class="radioContainer">
-                        <input type="radio" id="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
+                        <input type="radio" id="monsieur" name="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
                 <div class="erreurInput" id="civiliteValidation"></div>

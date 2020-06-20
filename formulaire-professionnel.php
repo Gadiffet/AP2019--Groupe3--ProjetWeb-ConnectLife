@@ -17,6 +17,15 @@ if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe'
         $_SESSION['is_societe'] = $_POST['is_societe'];
 }
 
+if($_POST['madame'])
+{
+    $_SESSION['sexe'] = "madame";
+}
+else
+{
+    $_SESSION['sexe'] = "monsieur";
+}
+
 // récupération GUID clients
 $guid_perso = $_COOKIE['guid']; 
 $mailClient = $_COOKIE['mailClient'];
@@ -62,10 +71,10 @@ if ($guid_perso === null)
                 </div>
                 <div class="radioInputGroup">
                     <div class="radioContainer">
-                        <input type="radio" id="madame" class="checkbox-box checkbox-Madame" onclick="verificationCheckboxMadame()"> Madame
+                        <input type="radio" id="madame" name="madame" class="checkbox-box checkbox-Madame" checked="checked" onclick="verificationCheckboxMadame()"> Madame
                     </div>
-                    <div class="radioContainer">
-                        <input type="radio" id="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
+                    <div class="radioContainer"> 
+                        <input type="radio" id="monsieur" name="monsieur" class="checkbox-box checkbox-Monsieur" onclick="verificationCheckboxMonsieur()"> Monsieur
                     </div>
                 </div>
                 <div class="erreurInput" id="civiliteValidation"></div>
