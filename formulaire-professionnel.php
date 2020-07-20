@@ -2,32 +2,25 @@
 //on start la SESSION
 session_start();
 
-//verification input non vide et création var de SESSION  
-if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['nom_societe']) || isset($_POST['poste_occupe']) || isset($_POST['email']) || isset($_POST['adresse_1']) || isset($_POST['adresse_2']) || isset($_POST['telephone_societe']) || isset($_POST['telephone_directe']) || isset($_POST['CP']) || isset($_POST['nom_ville'])) 
-{
-        $_SESSION['nom'] = $_POST['nom'];
-        $_SESSION['prenom'] = $_POST['prenom'];
-        $_SESSION['nom_societe'] = $_POST['nom_societe'];
-        $_SESSION['poste_occupe'] = $_POST['poste_occupe'];
-        $_SESSION['adresse_1'] = $_POST['adresse_1'];
-        $_SESSION['adresse_2'] = $_POST['adresse_2'];
-        $_SESSION['telephone_societe'] = $_POST['telephone_societe'];
-        $_SESSION['telephone_directe'] = $_POST['telephone_directe'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['CP'] = $_POST['CP'];
-        $_SESSION['nom_ville'] = $_POST['nom_ville'];
-}
+$_SESSION['nom'] = isset($_POST['nom']) ? $_POST['nom'] : NULL;
+$_SESSION['prenom'] = isset($_POST['prenom']) ? $_POST['prenom'] : NULL;
+$_SESSION['nom_societe'] = isset($_POST['nom_societe']) ? $_POST['nom_societe'] : NULL;
+$_SESSION['poste_occupe'] = isset($_POST['poste_occupe']) ? $_POST['poste_occupe'] : NULL;
+$_SESSION['adresse_1'] = isset($_POST['adresse_1']) ? $_POST['adresse_1'] : NULL; 
+$_SESSION['adresse_2'] = isset($_POST['truc']) ? $_POST['truc'] : NULL;
+$_SESSION['telephone_societe'] = isset($_POST['telephone_societe']) ? $_POST['telephone_societe'] : NULL;
+$_SESSION['telephone_directe'] = isset($_POST['telephone_directe']) ? $_POST['telephone_directe'] : NULL;
+$_SESSION['email'] = isset($_POST['email']) ? $_POST['email'] : NULL;
+$_SESSION['CP'] = isset($_POST['CP']) ? $_POST['CP'] : NULL;
+$_SESSION['nom_ville'] = isset($_POST['nom_ville']) ? $_POST['nom_ville'] : NULL;
 
-if(isset($_POST['madame']) || isset($_POST['monsieur']))
+if(isset($_POST['madame']))
 {
-    if($_POST['madame'])
-    {
-        $_SESSION['sexe'] = "madame";
-    }
-    else
-    {
-        $_SESSION['sexe'] = "monsieur";
-    }
+    $_SESSION['sexe'] = "madame";
+}
+else
+{
+    $_SESSION['sexe'] = "monsieur";
 }
 
 // récupération GUID clients
@@ -136,7 +129,7 @@ if ($guid_perso === null)
                 <div class="text">
                     Ville* :
                 </div>
-                <input type="text" id="nom_ville" name="nom_ville" disabled="disabled">
+                <input type="text" id="nom_ville" name="nom_ville">
                 <div class="erreurInput" id="nom_villeValidation"></div>
             </div>
             <div class="input">

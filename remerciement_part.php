@@ -1,6 +1,7 @@
 <?php  
 //demarrage sessions et var
 session_start();
+
 $guid = $_COOKIE['guid'];
 $nom_client = $_SESSION['nom'];
 $prenom_client = $_SESSION['prenom'];
@@ -11,7 +12,7 @@ $tel_fixe = $_SESSION['telephone_fixe'];
 $tel_portable = $_SESSION['telephone_portable'];
 $CP = $_SESSION['CP'];
 $nom_ville = $_SESSION['nom_ville'];
-$sexe = $_SESSION['sexe']  
+$sexe = $_SESSION['sexe']; 
 
 // connection à la BDD
 try{
@@ -19,11 +20,12 @@ try{
     }
 catch(PDOException $e)
     {
-    echo 'erreur de connexion à la BDD';
+        throw new InvalidArgumentException('Erreur connexion à la base de données : '.$e->getMessage());
+        exit;
     }
 
 // requête SQL
-$req = $pdo->prepare('INSERT INTO client_particulier(GUID, sexe, nom, prenom, adresse_1, adresse_2, CP, nom_ville, telephone_fixe, telephone_portable, email) VALUES(:GUID, :sexe, :nom, :prenom, :adresse_1, :adresse_2, :CP, :nom_ville, :telephone_fixe, :telephone_portable, :email)');
+$req = $pdo->prepare('INSERT INTO client_particulier (GUID, sexe, nom, prenom, adresse_1, adresse_2, CP, nom_ville, telephone_fixe, telephone_portable, email) VALUES(:GUID, :sexe, :nom, :prenom, :adresse_1, :adresse_2, :CP, :nom_ville, :telephone_fixe, :telephone_portable, :email)');
 // execute SQL
 $req->execute(array(
     'GUID' => $guid,
@@ -38,6 +40,8 @@ $req->execute(array(
     'telephone_portable' => $tel_portable,
     'email' => $mail_client,
 ));
+
+session_destroy();
 ?>
 
 <!DOCTYPE html>

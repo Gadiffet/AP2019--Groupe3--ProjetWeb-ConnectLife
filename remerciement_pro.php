@@ -15,19 +15,18 @@ $tel_direct = $_SESSION['telephone_directe'];
 $CP = $_SESSION['CP'];
 $nom_ville = $_SESSION['nom_ville'];
 $sexe = $_SESSION['sexe'];  
-$exported = 0;
 
 // connection à la BDD
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=projetweb','root','');
     }
 catch (PDOException $e) {
-    throw new InvalidArgumentException('Erreur connexion à la base de données : '.$e->getMessage());
-    exit;
+        throw new InvalidArgumentException('Erreur connexion à la base de données : '.$e->getMessage());
+        exit;
     }
 
 // requête SQL
-$req = $pdo->prepare('INSERT INTO client_pro(GUID, sexe, nom, prenom, nom_societe, poste_occupe, adresse_1, adresse_2, CP, nom_ville, telephone_societe, telephone_directe, email, exported) VALUES(:GUID, :sexe, :nom, :prenom, :nom_societe, :poste_occupe, :adresse_1, :adresse_2, :CP, :nom_ville, :telephone_societe, :telephone_directe, :email, :exported)');
+$req = $pdo->prepare('INSERT INTO client_pro(GUID, sexe, nom, prenom, nom_societe, poste_occupe, adresse_1, adresse_2, CP, nom_ville, telephone_societe, telephone_directe, email) VALUES(:GUID, :sexe, :nom, :prenom, :nom_societe, :poste_occupe, :adresse_1, :adresse_2, :CP, :nom_ville, :telephone_societe, :telephone_directe, :email)');
 // execute SQL
 $req->execute(array(
     'GUID' => $guid,
@@ -43,7 +42,6 @@ $req->execute(array(
     'telephone_societe' => $tel_societe,
     'telephone_directe' => $tel_direct,
     'email' => $mail_client,
-    'exported' => $exported,
 ));
 
 session_destroy();
@@ -73,6 +71,21 @@ session_destroy();
     </div>
     <!--Message-->
     <div class="text">
+                <?php
+                    echo($guid); 
+                    echo($nom_client);
+                    echo($prenom_client);
+                    echo($mail_client);
+                    echo($nom_societe);
+                    echo($poste_occupe);
+                    echo($adresse_1);
+                    echo($adresse_2);
+                    echo($tel_societe);
+                    echo($tel_direct);
+                    echo($CP);
+                    echo($nom_ville);
+                    echo($sexe);
+                ?>
         Merci de votre confiance !
 
         Voici votre CODE PROMO de 10% : C4DR-D4RJE-FR7Y
