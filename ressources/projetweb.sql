@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 10 avr. 2020 à 11:31
+-- Généré le : lun. 20 juil. 2020 à 12:55
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.3
 
@@ -25,23 +25,70 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Structure de la table `client_particulier`
 --
 
-CREATE TABLE `clients` (
-  `GUID` varchar(255) NOT NULL,
+CREATE TABLE `client_particulier` (
+  `id_client` int(11) NOT NULL,
+  `GUID` varchar(55) NOT NULL,
+  `sexe` varchar(20) NOT NULL,
   `nom` varchar(55) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `is_societe` tinyint(1) NOT NULL
+  `prenom` varchar(55) NOT NULL,
+  `adresse_1` varchar(155) NOT NULL,
+  `adresse_2` varchar(155) DEFAULT NULL,
+  `CP` int(5) NOT NULL,
+  `nom_ville` varchar(55) NOT NULL,
+  `telephone_fixe` varchar(20) DEFAULT NULL,
+  `telephone_portable` varchar(20) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `exported` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `clients`
+-- Déchargement des données de la table `client_particulier`
 --
 
-INSERT INTO `clients` (`GUID`, `nom`, `email`, `is_societe`) VALUES
-('59ab2f0e-798d-11ea-867a-6c71d9d44261', 'blanc', 'fff.blanc@gmail.com', 0),
-('59ab3128-798d-11ea-867a-6c71d9d44261', 'dupont', 'fff.dupont@gmail.com', 0);
+INSERT INTO `client_particulier` (`id_client`, `GUID`, `sexe`, `nom`, `prenom`, `adresse_1`, `adresse_2`, `CP`, `nom_ville`, `telephone_fixe`, `telephone_portable`, `email`, `exported`) VALUES
+(10, '32A76E8D-BC7A-4611-BF0B-A8D11FC35890', 'madame', 'marous', 'mdlad', '294 ruie adadza', '', 59400, 'Eswars', '327648758', '327648758', 'fitpwyea@gmail.com', 0),
+(14, '744C53E4-0557-4098-AB78-2CF41AECA4DC', 'madame', 'letestfinal', 'finale', '294 rue du final', '', 16560, 'Coulgens', '0601306564', '', 'mklhrlws@gmail.com', 0),
+(11, '7D274E14-4B78-4C79-B5B4-98F0B24CE2E3', 'monsieur', 'patapouf', 'test', '294 ruie adadza', '', 15400, 'Apchon', '0601306564', '0327648758', 'tfehvale@gmail.com', 0),
+(9, 'A1B24CF9-60CE-4057-B3DE-D66AD67962BC', 'madame', 'dadaidadiaiadiaiad', 'poupm', '294 ruie adadza', '89 ere', 59440, 'Bas-Lieu', '327648758', '327648758', 'iunajmoh@gmail.com', 0),
+(7, 'CDAD989E-F18F-4C9D-84C4-D036F261EF78', 'madame', 'daada', 'daada', '294 ruie adadza', '89 ere', 94520, 'Mandres-les-Roses', '327648758', '327648758', 'mfcwkbpa@gmail.com', 0),
+(1, 'E0CFB876-B3C6-4E31-9B71-5BCA13627FB3', 'masculin', 'lacour', 'val', '294 rue des jonqui', '298 rue des jonq', 59553, 'cuincy', '327888888', '655888888', 'val.lac@gma.com', 0),
+(6, 'E0CFB876-B3C6-4E31-9B71-5BCA13627FB7', 'masculin', 'lacour', 'steven', '294 poudlard', '', 86486, 'paris', '615432565', '596262961', 'va@gamkg', 0),
+(12, 'FD70230A-C7FC-473A-8F4A-E4557F4A4744', 'monsieur', 'patapouf', 'test', '294 ruie adadza', '', 15400, 'Apchon', '0601306564', '0327648758', 'tfehvale@gmail.com', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `client_pro`
+--
+
+CREATE TABLE `client_pro` (
+  `id_client` int(11) NOT NULL,
+  `GUID` varchar(55) NOT NULL,
+  `sexe` varchar(20) NOT NULL,
+  `nom` varchar(55) NOT NULL,
+  `prenom` varchar(55) NOT NULL,
+  `nom_societe` varchar(100) NOT NULL,
+  `poste_occupe` varchar(55) NOT NULL,
+  `adresse_1` varchar(155) NOT NULL,
+  `adresse_2` varchar(155) DEFAULT NULL,
+  `CP` int(5) NOT NULL,
+  `nom_ville` varchar(55) NOT NULL,
+  `telephone_societe` varchar(20) DEFAULT NULL,
+  `telephone_directe` varchar(20) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `exported` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_pro`
+--
+
+INSERT INTO `client_pro` (`id_client`, `GUID`, `sexe`, `nom`, `prenom`, `nom_societe`, `poste_occupe`, `adresse_1`, `adresse_2`, `CP`, `nom_ville`, `telephone_societe`, `telephone_directe`, `email`, `exported`) VALUES
+(2, '2ADE0B95-26BA-4C6C-BD46-6625C0C0C95A', 'madame', 'letestfinal', 'finale', 'tes', 'test', '294 rue du final', NULL, 59670, 'Zuytpeene', '0601306564', '0601306564', 'nybokqts@gmail.com', 0),
+(3, '4716BF22-FE13-45F2-B255-296571AA0747', 'madame', 'test', 'test', 'test', 'test', '594 rue test', NULL, 29460, 'Daoulas', '0945631654', '0945631654', 'jerqxkky@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -73,7 +120,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (10, 'Relevant', '01990', '01319'),
 (11, 'Chaveyriat', '01660', '01096'),
 (12, 'Vaux-en-Bugey', '01150', '01431'),
-(13, 'maillat', '01430', '01228'),
+(13, 'Maillat', '01430', '01228'),
 (14, 'Faramans', '01800', '01156'),
 (15, 'Béon', '01350', '01039'),
 (16, 'Saint-Bernard', '01600', '01339'),
@@ -1516,7 +1563,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (1452, 'Pouzy-Mésangy', '03320', '03210'),
 (1453, 'Saint-Léopardin-d\'Augy', '03160', '03241'),
 (1454, 'Saint-Hilaire', '03440', '03238'),
-(1455, 'maillet', '03190', '03158'),
+(1455, 'Maillet', '03190', '03158'),
 (1456, 'Lenax', '03130', '03142'),
 (1457, 'La Petite-Marche', '03420', '03206'),
 (1458, 'Sainte-Thérence', '03420', '03261'),
@@ -3484,7 +3531,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (3419, 'Charmoy', '10290', '10085'),
 (3420, 'Romilly-sur-Seine', '10100', '10323'),
 (3421, 'Merrey-sur-Arce', '10110', '10232'),
-(3422, 'mailly-le-Camp', '10230', '10216'),
+(3422, 'Mailly-le-Camp', '10230', '10216'),
 (3423, 'Balnot-la-Grange', '10210', '10028'),
 (3424, 'Courceroy', '10400', '10106'),
 (3425, 'Saint-André-les-Vergers', '10120', '10333'),
@@ -3997,7 +4044,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (3931, 'Auriac', '11330', '11020'),
 (3932, 'Fraisse-Cabardès', '11600', '11156'),
 (3933, 'Cahuzac', '11420', '11057'),
-(3934, 'mailhac', '11120', '11212'),
+(3934, 'Mailhac', '11120', '11212'),
 (3935, 'Capendu', '11700', '11068'),
 (3936, 'Villedaigne', '11200', '11421'),
 (3937, 'Pexiora', '11150', '11281'),
@@ -4507,7 +4554,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (4441, 'Rognes', '13840', '13082'),
 (4442, 'Eyragues', '13630', '13036'),
 (4443, 'Port-Saint-Louis-du-Rhône', '13230', '13078'),
-(4444, 'maillane', '13910', '13052'),
+(4444, 'Maillane', '13910', '13052'),
 (4445, 'Le Puy-Sainte-Réparade', '13610', '13080'),
 (4446, 'Châteaurenard', '13160', '13027'),
 (4447, 'Mallemort', '13370', '13053'),
@@ -5041,11 +5088,11 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (4975, 'Douvres-la-Délivrande', '14440', '14228'),
 (4976, 'Mondeville', '14120', '14437'),
 (4977, 'Agy', '14400', '14003'),
-(4978, 'Saint-Pierre-de-mailloc', '14290', '14647'),
+(4978, 'Saint-Pierre-de-Mailloc', '14290', '14647'),
 (4979, 'Hérouville-Saint-Clair', '14200', '14327'),
 (4980, 'Missy', '14210', '14432'),
 (4981, 'Formentin', '14340', '14280'),
-(4982, 'Saint-Denis-de-mailloc', '14100', '14571'),
+(4982, 'Saint-Denis-de-Mailloc', '14100', '14571'),
 (4983, 'Douville-en-Auge', '14430', '14227'),
 (4984, 'Périgny', '14770', '14496'),
 (4985, 'Colomby-sur-Thaon', '14610', '14170'),
@@ -5060,7 +5107,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (4994, 'Bénouville', '14970', '14060'),
 (4995, 'Annebault', '14430', '14016'),
 (4996, 'Soliers', '14540', '14675'),
-(4997, 'Saint-Martin-de-mailloc', '14100', '14626'),
+(4997, 'Saint-Martin-de-Mailloc', '14100', '14626'),
 (4998, 'Avenay', '14210', '14034'),
 (4999, 'Roucamps', '14260', '14544'),
 (5000, 'Sainte-Croix-Grand-Tonne', '14740', '14568'),
@@ -5207,7 +5254,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (5140, 'Touffréville', '14940', '14698'),
 (5141, 'Sept-Vents', '14240', '14672'),
 (5142, 'Bourguébus', '14540', '14092'),
-(5143, 'Saint-Julien-de-mailloc', '14290', '14599'),
+(5143, 'Saint-Julien-de-Mailloc', '14290', '14599'),
 (5144, 'Courseulles-sur-Mer', '14470', '14191'),
 (5145, 'Le Pin', '14590', '14504'),
 (5146, 'Villy-Bocage', '14310', '14760'),
@@ -7653,7 +7700,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (7584, 'Fresnes', '21500', '21287'),
 (7585, 'Villey-sur-Tille', '21120', '21702'),
 (7586, 'Beurizot', '21350', '21069'),
-(7587, 'maillys', '21130', '21371'),
+(7587, 'Maillys', '21130', '21371'),
 (7588, 'Buffon', '21500', '21114'),
 (7589, 'Grésigny-Sainte-Reine', '21150', '21307'),
 (7590, 'Vignoles', '21200', '21684'),
@@ -10704,7 +10751,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (10633, 'La Ferté-Vidame', '28340', '28149'),
 (10634, 'Coulombs', '28210', '28113'),
 (10635, 'Saint-Léger-des-Aubées', '28700', '28344'),
-(10636, 'maillebois', '28170', '28226'),
+(10636, 'Maillebois', '28170', '28226'),
 (10637, 'Conie-Molitard', '28200', '28106'),
 (10638, 'Luray', '28500', '28223'),
 (10639, 'Jouy', '28300', '28201'),
@@ -11763,7 +11810,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (11691, 'Montréjeau', '31210', '31390'),
 (11692, 'Noueilles', '31450', '31401'),
 (11693, 'Chein-Dessus', '31160', '31140'),
-(11694, 'mailholas', '31310', '31312'),
+(11694, 'Mailholas', '31310', '31312'),
 (11695, 'Izaut-de-l\'Hôtel', '31160', '31241'),
 (11696, 'Mons', '31280', '31355'),
 (11697, 'Villemur-sur-Tarn', '31340', '31584'),
@@ -13950,7 +13997,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (13876, 'Vigoulant', '36160', '36238'),
 (13877, 'Aize', '36150', '36002'),
 (13878, 'Issoudun', '36100', '36088'),
-(13879, 'maillet', '36340', '36110'),
+(13879, 'Maillet', '36340', '36110'),
 (13880, 'Saint-Denis-de-Jouhet', '36230', '36189'),
 (13881, 'Ségry', '36100', '36215'),
 (13882, 'Néret', '36400', '36138'),
@@ -14269,7 +14316,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (14195, 'Neuvy-le-Roi', '37370', '37170'),
 (14196, 'Luzé', '37120', '37140'),
 (14197, 'Vouvray', '37210', '37281'),
-(14198, 'maillé', '37800', '37142'),
+(14198, 'Maillé', '37800', '37142'),
 (14199, 'La Ville-aux-Dames', '37700', '37273'),
 (14200, 'Dolus-le-Sec', '37310', '37097'),
 (14201, 'Saint-Avertin', '37550', '37208'),
@@ -14503,7 +14550,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (14429, 'Percy', '38930', '38301'),
 (14430, 'Saint-Maurice-en-Trièves', '38930', '38424'),
 (14431, 'Roches-de-Condrieu', '38370', '38340'),
-(14432, 'Morêtel-de-mailles', '38570', '38262'),
+(14432, 'Morêtel-de-Mailles', '38570', '38262'),
 (14433, 'Badinières', '38300', '38024'),
 (14434, 'Meyrieu-les-Étangs', '38440', '38231'),
 (14435, 'Noyarey', '38360', '38281'),
@@ -15483,7 +15530,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (15408, 'Artassenx', '40090', '40012'),
 (15409, 'Trensacq', '40630', '40319'),
 (15410, 'Ondres', '40440', '40209'),
-(15411, 'maillas', '40120', '40169'),
+(15411, 'Maillas', '40120', '40169'),
 (15412, 'Saint-Vincent-de-Paul', '40990', '40283'),
 (15413, 'Belhade', '40410', '40032'),
 (15414, 'Betbezer-d\'Armagnac', '40240', '40039'),
@@ -15776,7 +15823,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (15701, 'Taller', '40260', '40311'),
 (15702, 'Sarbazan', '40120', '40288'),
 (15703, 'Vicq-d\'Auribat', '40380', '40324'),
-(15704, 'maillères', '40120', '40170'),
+(15704, 'Maillères', '40120', '40170'),
 (15705, 'Pissos', '40410', '40227'),
 (15706, 'Saint-Paul-lès-Dax', '40990', '40279'),
 (15707, 'Siest', '40180', '40301'),
@@ -19418,7 +19465,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (19340, 'Courdemanges', '51300', '51184'),
 (19341, 'Sainte-Marie-à-Py', '51600', '51501'),
 (19342, 'Argers', '51800', '51015'),
-(19343, 'mailly-Champagne', '51500', '51338'),
+(19343, 'Mailly-Champagne', '51500', '51338'),
 (19344, 'Bourgogne', '51110', '51075'),
 (19345, 'Couvrot', '51300', '51195'),
 (19346, 'Corbeil', '51320', '51169'),
@@ -20793,7 +20840,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (20714, 'Saint-Marcel', '54800', '54478'),
 (20715, 'Igney', '54450', '54271'),
 (20716, 'Serrouville', '54560', '54504'),
-(20717, 'mailly-sur-Seille', '54610', '54333'),
+(20717, 'Mailly-sur-Seille', '54610', '54333'),
 (20718, 'Herbéviller', '54450', '54259'),
 (20719, 'Réhon', '54430', '54451'),
 (20720, 'Laneuveville-devant-Bayon', '54740', '54299'),
@@ -24277,7 +24324,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (24195, 'Chanu', '61800', '61093'),
 (24196, 'Neuville-près-Sées', '61500', '61306'),
 (24197, 'Ménil-Hubert-en-Exmes', '61230', '61268'),
-(24198, 'Brullmail', '61390', '61064'),
+(24198, 'Brullemail', '61390', '61064'),
 (24199, 'Saint-Maurice-sur-Huisne', '61110', '61430'),
 (24200, 'La Sauvagère', '61600', '61463'),
 (24201, 'Godisson', '61240', '61192'),
@@ -28585,7 +28632,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (28499, 'Dampvalley-Saint-Pancras', '70210', '70200'),
 (28500, 'Haut-du-Them-Château-Lambert', '70440', '70283'),
 (28501, 'Échenans-sous-Mont-Vaudois', '70400', '70206'),
-(28502, 'mailleroncourt-Saint-Pancras', '70210', '70323'),
+(28502, 'Mailleroncourt-Saint-Pancras', '70210', '70323'),
 (28503, 'Bresilley', '70140', '70092'),
 (28504, 'Mélecey', '70110', '70336'),
 (28505, 'Mandrevillars', '70400', '70330'),
@@ -28618,7 +28665,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (28532, 'Roche-sur-Linotte-et-Sorans-les-Cordiers', '70230', '70449'),
 (28533, 'Fondremand', '70190', '70239'),
 (28534, 'Montbozon', '70230', '70357'),
-(28535, 'mailleroncourt-Charette', '70240', '70322'),
+(28535, 'Mailleroncourt-Charette', '70240', '70322'),
 (28536, 'Échenoz-le-Sec', '70000', '70208'),
 (28537, 'Renaucourt', '70120', '70442'),
 (28538, 'Boult', '70190', '70085'),
@@ -28768,7 +28815,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (28682, 'Saint-Marcel', '70500', '70468'),
 (28683, 'Tromarey', '70150', '70509'),
 (28684, 'Chagey', '70400', '70116'),
-(28685, 'mailley-et-Chazelot', '70000', '70324'),
+(28685, 'Mailley-et-Chazelot', '70000', '70324'),
 (28686, 'Autrey-lès-Cerre', '70110', '70040'),
 (28687, 'Lyoffans', '70200', '70313'),
 (28688, 'Pusey', '70000', '70428'),
@@ -29470,7 +29517,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (29384, 'Saint-Marcelin-de-Cray', '71460', '71446'),
 (29385, 'Allériot', '71380', '71004'),
 (29386, 'Solutré-Pouilly', '71960', '71526'),
-(29387, 'mailly', '71340', '71271'),
+(29387, 'Mailly', '71340', '71271'),
 (29388, 'Remigny', '71150', '71369'),
 (29389, 'Saint-Symphorien-des-Bois', '71800', '71483'),
 (29390, 'Saint-Julien-sur-Dheune', '71210', '71435'),
@@ -31010,7 +31057,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (30922, 'Saint-Saëns', '76680', '76648'),
 (30923, 'Veules-les-Roses', '76980', '76735'),
 (30924, 'Saint-Martin-Osmonville', '76680', '76621'),
-(30925, 'Theuville-aux-maillots', '76540', '76686'),
+(30925, 'Theuville-aux-Maillots', '76540', '76686'),
 (30926, 'Gonneville-la-Mallet', '76280', '76307'),
 (30927, 'Vattetot-sur-Mer', '76111', '76726'),
 (30928, 'Saint-Nicolas-de-la-Haie', '76490', '76626'),
@@ -31138,7 +31185,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (31050, 'Cressy', '76720', '76191'),
 (31051, 'Puisenval', '76660', '76512'),
 (31052, 'La Bellière', '76440', '76074'),
-(31053, 'La mailleraye-sur-Seine', '76940', '76401'),
+(31053, 'La Mailleraye-sur-Seine', '76940', '76401'),
 (31054, 'Saint-Germain-des-Essourts', '76750', '76581'),
 (31055, 'Caudebec-lès-Elbeuf', '76320', '76165'),
 (31056, 'Saint-Aubin-sur-Mer', '76740', '76564'),
@@ -32358,7 +32405,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (32269, 'Beaumetz', '80370', '80068'),
 (32270, 'Méricourt-en-Vimeu', '80640', '80531'),
 (32271, 'Templeux-le-Guérard', '80240', '80748'),
-(32272, 'mailly-Raineval', '80110', '80499'),
+(32272, 'Mailly-Raineval', '80110', '80499'),
 (32273, 'Famechon', '80290', '80301'),
 (32274, 'Canchy', '80150', '80167'),
 (32275, 'Fontaine-le-Sec', '80140', '80324'),
@@ -32780,7 +32827,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (32691, 'Fouquescourt', '80170', '80339'),
 (32692, 'Bourseville', '80130', '80124'),
 (32693, 'Métigny', '80270', '80543'),
-(32694, 'mailly-maillet', '80560', '80498'),
+(32694, 'Mailly-Maillet', '80560', '80498'),
 (32695, 'Lamotte-Brebière', '80450', '80461'),
 (32696, 'Aizecourt-le-Bas', '80240', '80014'),
 (32697, 'Hangest-sur-Somme', '80310', '80416'),
@@ -33216,7 +33263,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (33127, 'Lagardiolle', '81110', '81129'),
 (33128, 'Saint-Antonin-de-Lacalm', '81120', '81241'),
 (33129, 'Labastide-Gabausse', '81400', '81114'),
-(33130, 'mailhoc', '81130', '81152'),
+(33130, 'Mailhoc', '81130', '81152'),
 (33131, 'Sorèze', '81540', '81288'),
 (33132, 'Cordes-sur-Ciel', '81170', '81069'),
 (33133, 'Lautrec', '81440', '81139'),
@@ -33988,7 +34035,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (33898, 'Saint-Benoist-sur-Mer', '85540', '85201'),
 (33899, 'Réaumur', '85700', '85187'),
 (33900, 'Saint-Georges-de-Montaigu', '85600', '85217'),
-(33901, 'maillezais', '85420', '85133'),
+(33901, 'Maillezais', '85420', '85133'),
 (33902, 'Saint-Laurent-sur-Sèvre', '85290', '85238'),
 (33903, 'Rocheservière', '85620', '85190'),
 (33904, 'Bois-de-Céné', '85710', '85024'),
@@ -34189,7 +34236,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (34099, 'La Boissière-de-Montaigu', '85600', '85025'),
 (34100, 'L\'Orbrie', '85200', '85167'),
 (34101, 'Sainte-Flaive-des-Loups', '85150', '85211'),
-(34102, 'maillé', '85420', '85132'),
+(34102, 'Maillé', '85420', '85132'),
 (34103, 'Puyravault', '85450', '85185'),
 (34104, 'La Bruffière', '85530', '85039'),
 (34105, 'La Guérinière', '85680', '85106'),
@@ -34382,7 +34429,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (34292, 'Chenevelles', '86450', '86072'),
 (34293, 'Curzay-sur-Vonne', '86600', '86091'),
 (34294, 'Romagne', '86700', '86211'),
-(34295, 'Saint-Pierre-de-maillé', '86260', '86236'),
+(34295, 'Saint-Pierre-de-Maillé', '86260', '86236'),
 (34296, 'Château-Garnier', '86350', '86064'),
 (34297, 'Bourg-Archambault', '86390', '86035'),
 (34298, 'Vézières', '86120', '86287'),
@@ -34424,7 +34471,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (34334, 'Beuxes', '86120', '86026'),
 (34335, 'Lauthiers', '86300', '86122'),
 (34336, 'Vellèches', '86230', '86280'),
-(34337, 'maillé', '86190', '86142'),
+(34337, 'Maillé', '86190', '86142'),
 (34338, 'Saint-Jean-de-Sauves', '86330', '86225'),
 (34339, 'Thurageau', '86110', '86271'),
 (34340, 'Sainte-Radegonde', '86300', '86239'),
@@ -34581,7 +34628,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (34491, 'Saint-Yrieix-la-Perche', '87500', '87187'),
 (34492, 'Oradour-sur-Vayres', '87150', '87111'),
 (34493, 'Droux', '87190', '87061'),
-(34494, 'mailhac-sur-Benaize', '87160', '87090'),
+(34494, 'Mailhac-sur-Benaize', '87160', '87090'),
 (34495, 'Maisonnais-sur-Tardoire', '87440', '87091'),
 (34496, 'Folles', '87250', '87067'),
 (34497, 'Flavignac', '87230', '87066'),
@@ -35280,7 +35327,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (35189, 'Prégilbert', '89460', '89314'),
 (35190, 'Bœurs-en-Othe', '89770', '89048'),
 (35191, 'Moulins-sur-Ouanne', '89130', '89272'),
-(35192, 'maillot', '89100', '89236'),
+(35192, 'Maillot', '89100', '89236'),
 (35193, 'Évry', '89140', '89162'),
 (35194, 'Chevannes', '89240', '89102'),
 (35195, 'Dollot', '89150', '89143'),
@@ -35346,7 +35393,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (35255, 'Thorigny-sur-Oreuse', '89260', '89414'),
 (35256, 'Quincerot', '89740', '89320'),
 (35257, 'Vézinnes', '89700', '89447'),
-(35258, 'mailly-le-Château', '89660', '89238'),
+(35258, 'Mailly-le-Château', '89660', '89238'),
 (35259, 'Montillot', '89660', '89266'),
 (35260, 'Paroy-en-Othe', '89210', '89288'),
 (35261, 'Appoigny', '89380', '89013'),
@@ -35463,7 +35510,7 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 (35372, 'Nailly', '89100', '89274'),
 (35373, 'Tanlay', '89430', '89407'),
 (35374, 'Sacy', '89270', '89330'),
-(35375, 'mailly-la-Ville', '89270', '89237'),
+(35375, 'Mailly-la-Ville', '89270', '89237'),
 (35376, 'Marchais-Beton', '89120', '89243'),
 (35377, 'Baon', '89430', '89028'),
 (35378, 'Censy', '89310', '89064'),
@@ -36796,10 +36843,18 @@ INSERT INTO `Ville_france` (`ville_id`, `nom_ville`, `CP`, `ville_code_commune`)
 --
 
 --
--- Index pour la table `clients`
+-- Index pour la table `client_particulier`
 --
-ALTER TABLE `clients`
-  ADD PRIMARY KEY (`GUID`);
+ALTER TABLE `client_particulier`
+  ADD PRIMARY KEY (`GUID`),
+  ADD KEY `id_client` (`id_client`);
+
+--
+-- Index pour la table `client_pro`
+--
+ALTER TABLE `client_pro`
+  ADD PRIMARY KEY (`GUID`),
+  ADD KEY `id_client` (`id_client`);
 
 --
 -- Index pour la table `Ville_france`
@@ -36810,6 +36865,18 @@ ALTER TABLE `Ville_france`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `client_particulier`
+--
+ALTER TABLE `client_particulier`
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `client_pro`
+--
+ALTER TABLE `client_pro`
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `Ville_france`
